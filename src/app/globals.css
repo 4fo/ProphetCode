@@ -142,7 +142,7 @@ body {
 .article-card {
   break-inside: avoid;
   page-break-inside: avoid;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 /* ─── Scrollbar Styling ─── */

@@ -6,7 +6,7 @@ interface NewspaperArticleProps {
 
 export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
   return (
-    <article className="article-card snap-start min-h-[50vh] py-4 first:pt-0">
+    <article className="article-card snap-start min-h-0 py-3 first:pt-0 last:pb-0">
       {/* Title */}
       <h3 className="newspaper-heading text-lg font-bold mb-1 leading-snug text-ink">
         {entry.title}
@@ -74,7 +74,7 @@ export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
 
       {/* Scripture References */}
       {entry.references.length > 0 && (
-        <div className="mt-4 pt-3 border-t border-divider">
+        <div className="mt-3 pt-2 border-t border-divider">
           <p className="text-[11px] font-serif italic text-muted/70 mb-1">
             Scripture References
           </p>
