@@ -112,23 +112,22 @@ export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
         })}
       </div>
 
-      {/* Scripture References */}
+      {/* Scripture References - with verse text */}
       {entry.references.length > 0 && (
-        <div className="mt-2 pt-1.5 border-t border-divider">
-          <p className="text-[11px] font-serif italic text-muted/70 mb-0.5">
+        <div className="mt-2 pt-2 border-t border-divider space-y-2">
+          <p className="text-[10px] tracking-[0.15em] uppercase text-muted/50 font-serif">
             Scripture References
           </p>
-          <div className="flex flex-wrap gap-x-3 gap-y-1">
-            {entry.references.map((ref, i) => (
-    <span
-                key={i}
-                className="relative inline-flex items-baseline text-xs text-accent-roots/70 hover:text-accent-roots transition-colors font-serif italic cursor-help"
-                title={ref.text}
-              >
+          {entry.references.map((ref, i) => (
+            <div key={i} className="pl-2.5 border-l-2 border-accent-gold/30">
+              <span className="text-[11px] font-bold text-accent-roots/80 font-serif">
                 {ref.book} {ref.chapter}:{ref.verse}
               </span>
-            ))}
-          </div>
+              <p className="text-[12px] leading-relaxed text-ink/70 font-serif mt-0.5">
+                &ldquo;{ref.text}&rdquo;
+              </p>
+            </div>
+          ))}
         </div>
       )}
     </article>
