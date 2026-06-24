@@ -1,230 +1,222 @@
-import { loadTimelineManifest, getSectionCounts } from "@/lib/timeline-manifest";
-import Link from "next/link";
+"use client";
+
+import { useRef, useState, useEffect, useCallback } from "react";
+import { loadTimelineManifest, getOrderedTimeSlices, getEntriesForSlice } from "@/lib/timeline-manifest";
+import type { DigestEntry } from "@/lib/types";
+
+import TimelineTrack from "@/components/TimelineTrack";
+import SectionPage from "@/components/SectionPage";
 
 export default function Home() {
   const manifest = loadTimelineManifest();
-  const counts = getSectionCounts(manifest);
+  const slices = getOrderedTimeSlices(manifest);
+  const totalEntries = manifest.entries.length;
+
+  // Build a map of slice id → entries
+  const entriesBySlice = useRef<Record<string, DigestEntry[]>>({});
+  if (Object.keys(entriesBySlice.current).length === 0) {
+    for (const slice of slices) {
+      entriesBySlice.current[slice.id] = getEntriesForSlice(manifest, slice.id);
+    }
+  }
+
+  // Build a map of slice id → color
+  const sectionColors = useRef<Record<string, string>>({});
+  for (const slice of slices) {
+    sectionColors.current[slice.id] = slice.themeColor;
+  }
+
+  // Refs
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Track active section via IntersectionObserver
+  const handleScroll = useCallback(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const scrollLeft = container.scrollLeft;
+    const totalWidth = container.scrollWidth - container.clientWidth;
+
+    // Calculate overall progress
+    setScrollProgress(totalWidth > 0 ? scrollLeft / totalWidth : 0);
+
+    // Determine active section by proximity to center of each section
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    for (let i = 0; i < slices.length; i++) {
+      const section = sectionRefs.current[i];
+      if (!section) continue;
+
+      const sectionCenter = section.offsetLeft + section.offsetWidth / 2;
+      const viewportCenter = scrollLeft + window.innerWidth / 2;
+      const distance = Math.abs(sectionCenter - viewportCenter);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = i;
+      }
+    }
+
+    setActiveIndex(closestIndex);
+  }, [slices.length]);
+
+  // Attach scroll listener
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    // Initial calculation
+    handleScroll();
+
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const container = scrollContainerRef.current;
+      if (!container) return;
+
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        const nextIndex = Math.min(activeIndex + 1, slices.length - 1);
+        const section = sectionRefs.current[nextIndex];
+        if (section) {
+          container.scrollTo({ left: section.offsetLeft, behavior: "smooth" });
+        }
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        const prevIndex = Math.max(activeIndex - 1, 0);
+        const section = sectionRefs.current[prevIndex];
+        if (section) {
+          container.scrollTo({ left: section.offsetLeft, behavior: "smooth" });
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeIndex, slices.length]);
+
+  // Derive background color from active section
+  const activeSlice = slices[activeIndex];
+  const bgColor = activeSlice?.themeColor ?? "#f5f0e8";
 
   return (
-    <div className="min-h-screen">
-      {/* ─── Masthead ─── */}
-      <header className="border-b border-rule pb-6 pt-8 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-xs tracking-[0.3em] uppercase text-muted mb-3 font-serif">
-            Intelligence Digest
-          </p>
-          <h1 className="newspaper-headline text-5xl sm:text-6xl md:text-7xl text-ink mb-2">
-            Prophet Code
-          </h1>
-          <p className="text-lg text-muted font-serif italic max-w-2xl mx-auto leading-relaxed">
-            Tracking the signs of the times through Scripture, history, and the
-            unfolding of biblical prophecy.
-          </p>
-          <div className="flex justify-center gap-6 mt-4 text-xs uppercase tracking-widest text-muted font-serif">
-            <span>Edition I</span>
-            <span>•</span>
-            <span>{new Date().toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}</span>
-            <span>•</span>
-            <span>{counts.roots + counts.echoes + counts.horizon} Articles</span>
-          </div>
-        </div>
+    <div
+      className="h-screen overflow-hidden transition-colors duration-700"
+      style={{ backgroundColor: bgColor + "08" }}
+    >
+      {/* Masthead — fixed overlay at top left */}
+      <header
+        className="fixed top-4 left-4 sm:top-6 sm:left-8 z-40 pointer-events-none transition-opacity duration-500"
+        style={{ opacity: activeIndex === 0 ? 1 : 0.6 }}
+      >
+        <h1 className="newspaper-headline text-lg sm:text-xl text-ink leading-none">
+          Prophet Code
+        </h1>
+        <p className="text-[9px] tracking-[0.3em] uppercase text-muted/50 font-serif mt-0.5">
+          Intelligence Digest
+        </p>
       </header>
 
-      {/* ─── Navigation Sections ─── */}
-      <nav className="border-b border-rule">
-        <div className="max-w-7xl mx-auto flex justify-center gap-8 sm:gap-16 px-4 py-3 text-sm font-serif">
-          <Link
-            href="#roots"
-            className="tracking-wider text-accent-roots hover:text-accent-roots/80 transition-colors uppercase"
-          >
-            The Roots
-          </Link>
-          <Link
-            href="#echoes"
-            className="tracking-wider text-accent-echoes hover:text-accent-echoes/80 transition-colors uppercase"
-          >
-            The Echoes
-          </Link>
-          <Link
-            href="#horizon"
-            className="tracking-wider text-accent-horizon hover:text-accent-horizon/80 transition-colors uppercase"
-          >
-            The Horizon
-          </Link>
-        </div>
-      </nav>
+      {/* Publication date — fixed at top right */}
+      <time className="fixed top-4 right-4 sm:top-6 sm:right-8 z-40 text-[9px] tracking-wider text-muted/40 font-serif pointer-events-none">
+        {new Date().toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })}
+      </time>
 
-      {/* ─── Main Content Area ─── */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-8 py-8">
-        {/* Roots Section */}
-        <section id="roots" className="mb-12">
-          <div className="flex items-center gap-3 mb-6 sticky-header">
-            <div className="w-1 h-8 bg-accent-roots" />
-            <div>
-              <h2 className="newspaper-heading text-2xl sm:text-3xl text-accent-roots">
-                The Roots
-              </h2>
-              <p className="text-sm text-muted font-serif italic">
-                Historical &amp; Foundational Context
-              </p>
+      {/* Timeline Track */}
+      <TimelineTrack
+        slices={slices}
+        activeIndex={activeIndex}
+        scrollContainerRef={scrollContainerRef}
+        sectionRefs={sectionRefs}
+        sectionColors={sectionColors.current}
+      />
+
+      {/* Horizontal Scroll Container */}
+      <div
+        ref={scrollContainerRef}
+className="flex overflow-x-auto snap-x snap-mandatory h-screen timeline-scrollbar hide-scrollbar"
+        style={{
+          scrollBehavior: "smooth",
+          overscrollBehaviorX: "contain",
+        }}
+      >
+        {/* Welcome / Intro Section */}
+        <section
+          className="relative w-screen h-screen flex-shrink-0 snap-start flex flex-col items-center justify-center px-6 sm:px-12"
+        >
+          <div className="max-w-xl text-center">
+            <p className="text-[10px] tracking-[0.35em] uppercase text-muted/50 font-serif mb-4">
+              Edition I — {totalEntries} Articles
+            </p>
+            <h2 className="newspaper-headline text-4xl sm:text-5xl md:text-6xl text-ink mb-6 leading-tight">
+              Tracking the Signs
+              <br />
+              <span className="italic font-normal text-muted/70">of the Times</span>
+            </h2>
+            <p className="text-sm sm:text-base text-muted/70 font-serif italic leading-relaxed max-w-lg mx-auto mb-8">
+              An intelligence digest for those monitoring the return of Christ.
+              Navigate through history, observe the present, and prepare for what
+              lies ahead.
+            </p>
+
+            {/* Scroll hint */}
+            <div className="flex flex-col items-center gap-2 animate-pulse-slow">
+              <span className="text-[9px] tracking-[0.2em] uppercase text-muted/30 font-serif">
+                Scroll right to begin
+              </span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                className="text-muted/30"
+              >
+                <path
+                  d="M6 4L10 8L6 12"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
-          </div>
-          <div className="newspaper-columns">
-            {manifest.entries
-              .filter((e) => e.contentType === "Root")
-              .sort((a, b) => a.verticalPos - b.verticalPos)
-              .map((entry) => (
-                <article key={entry.id} className="article-card">
-                  <h3 className="newspaper-heading text-lg font-bold mb-1 leading-snug">
-                    {entry.title}
-                  </h3>
-                  <div className="text-xs text-muted mb-2 font-serif uppercase tracking-wider">
-                    {manifest.timeSlices
-                      .find((ts) => ts.id === entry.timeSliceId)
-                      ?.label ?? ""}
-                  </div>
-                  <div className="newspaper-body text-sm leading-relaxed">
-                    {entry.content.split("\n\n").map((paragraph, i) => (
-                      <p key={i} className="mb-3 last:mb-0">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-                  {entry.references.length > 0 && (
-                    <div className="mt-3 pt-2 border-t border-divider">
-                      <p className="text-xs font-serif italic text-muted">
-                        Scriptures:{" "}
-                        {entry.references
-                          .map((ref) => `${ref.book} ${ref.chapter}:${ref.verse}`)
-                          .join(", ")}
-                      </p>
-                    </div>
-                  )}
-                </article>
-              ))}
           </div>
         </section>
 
-        <hr className="section-divider" />
+        {/* Timeline Sections */}
+        {slices.map((slice, i) => (
+          <SectionPage
+            key={slice.id}
+            ref={(el) => {
+              sectionRefs.current[i] = el;
+            }}slice={slice}
+                entries={entriesBySlice.current[slice.id] ?? []}
+          />
+        ))}
+      </div>
 
-        {/* Echoes Section */}
-        <section id="echoes" className="mb-12">
-          <div className="flex items-center gap-3 mb-6 sticky-header">
-            <div className="w-1 h-8 bg-accent-echoes" />
-            <div>
-              <h2 className="newspaper-heading text-2xl sm:text-3xl text-accent-echoes">
-                The Echoes
-              </h2>
-              <p className="text-sm text-muted font-serif italic">
-                Modern Manifestations &amp; Current Events
-              </p>
-            </div>
-          </div>
-          <div className="newspaper-columns">
-            {manifest.entries
-              .filter((e) => e.contentType === "Echo")
-              .sort((a, b) => a.verticalPos - b.verticalPos)
-              .map((entry) => (
-                <article key={entry.id} className="article-card">
-                  <h3 className="newspaper-heading text-lg font-bold mb-1 leading-snug">
-                    {entry.title}
-                  </h3>
-                  <div className="text-xs text-muted mb-2 font-serif uppercase tracking-wider">
-                    {manifest.timeSlices
-                      .find((ts) => ts.id === entry.timeSliceId)
-                      ?.label ?? ""}
-                  </div>
-                  <div className="newspaper-body text-sm leading-relaxed">
-                    {entry.content.split("\n\n").map((paragraph, i) => (
-                      <p key={i} className="mb-3 last:mb-0">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-                  {entry.references.length > 0 && (
-                    <div className="mt-3 pt-2 border-t border-divider">
-                      <p className="text-xs font-serif italic text-muted">
-                        Scriptures:{" "}
-                        {entry.references
-                          .map((ref) => `${ref.book} ${ref.chapter}:${ref.verse}`)
-                          .join(", ")}
-                      </p>
-                    </div>
-                  )}
-                </article>
-              ))}
-          </div>
-        </section>
-
-        <hr className="section-divider" />
-
-        {/* Horizon Section */}
-        <section id="horizon" className="mb-12">
-          <div className="flex items-center gap-3 mb-6 sticky-header">
-            <div className="w-1 h-8 bg-accent-horizon" />
-            <div>
-              <h2 className="newspaper-heading text-2xl sm:text-3xl text-accent-horizon">
-                The Horizon
-              </h2>
-              <p className="text-sm text-muted font-serif italic">
-                Prophetic &amp; Future Focus
-              </p>
-            </div>
-          </div>
-          <div className="newspaper-columns">
-            {manifest.entries
-              .filter((e) => e.contentType === "Horizon")
-              .sort((a, b) => a.verticalPos - b.verticalPos)
-              .map((entry) => (
-                <article key={entry.id} className="article-card">
-                  <h3 className="newspaper-heading text-lg font-bold mb-1 leading-snug">
-                    {entry.title}
-                  </h3>
-                  <div className="text-xs text-muted mb-2 font-serif uppercase tracking-wider">
-                    {manifest.timeSlices
-                      .find((ts) => ts.id === entry.timeSliceId)
-                      ?.label ?? ""}
-                  </div>
-                  <div className="newspaper-body text-sm leading-relaxed">
-                    {entry.content.split("\n\n").map((paragraph, i) => (
-                      <p key={i} className="mb-3 last:mb-0">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-                  {entry.references.length > 0 && (
-                    <div className="mt-3 pt-2 border-t border-divider">
-                      <p className="text-xs font-serif italic text-muted">
-                        Scriptures:{" "}
-                        {entry.references
-                          .map((ref) => `${ref.book} ${ref.chapter}:${ref.verse}`)
-                          .join(", ")}
-                      </p>
-                    </div>
-                  )}
-                </article>
-              ))}
-          </div>
-        </section>
-      </main>
-
-      {/* ─── Footer ─── */}
-      <footer className="border-t border-rule mt-12 py-8 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-xs tracking-[0.3em] uppercase text-muted mb-2 font-serif">
-            Prophet Code — The Bible Prophesy Dossier
-          </p>
-          <p className="text-xs text-muted/60 font-serif italic">
-            &ldquo;Watch therefore, for ye know not what hour your Lord doth come.&rdquo;
-            <br />
-            <span className="not-italic">— Matthew 24:42</span>
-          </p>
-        </div>
-      </footer>
+      {/* Bottom progress bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 h-0.5 bg-rule/20">
+        <div
+          className="h-full transition-all duration-150 ease-out"
+          style={{
+            width: `${scrollProgress * 100}%`,
+            backgroundColor: bgColor,
+          }}
+        />
+      </div>
     </div>
   );
 }

@@ -159,6 +159,71 @@ body {
   border-radius: 2px;
 }
 
+/* ─── Snap Scrolling ─── */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-y {
+  scroll-snap-type: y proximity;
+}
+
+.snap-start {
+  scroll-snap-align: start;
+}
+
+.snap-mandatory {
+  scroll-snap-stop: always;
+}
+
+/* Prevent scroll chaining */
+.overscroll-contain {
+  overscroll-behavior: contain;
+}
+
+/* ─── Scrollbar Hide (for timeline track) ─── */
+.timeline-scrollbar {
+  scrollbar-width: thin;
+}
+
+.timeline-scrollbar::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+
+.timeline-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-paper-dark);
+}
+
+.timeline-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-rule);
+  border-radius: 2px;
+}
+
+/* ─── Hide scrollbar for horizontal container ─── */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Pulse Animation ─── */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
 /* ─── Selection ─── */
 ::selection {
   background-color: var(--color-accent-gold);
@@ -171,7 +236,15 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
+  html,
+  .snap-x,
+  .snap-y {
     scroll-behavior: auto;
   }
+}
+
+/* ─── Prevent text selection during navigation ─── */
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
 }
