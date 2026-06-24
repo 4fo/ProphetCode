@@ -18,7 +18,7 @@ export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
   const contentParagraphs = entry.content.split("\n\n");
 
   return (
-    <article className="article-card snap-start min-h-0 py-2 first:pt-0 last:pb-0">
+    <article className="article-card snap-start min-h-0 py-[6px] first:pt-0 last:pb-0">
       {/* Title */}
       <h3 className="newspaper-heading text-lg font-bold mb-0.5 leading-snug text-ink">
         {entry.title}
@@ -122,15 +122,10 @@ export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
             {entry.references.map((ref, i) => (
     <span
                 key={i}
-                className="group inline-flex items-baseline gap-0.5 text-xs text-accent-roots/70 hover:text-accent-roots transition-colors font-serif italic cursor-default"
+                className="relative inline-flex items-baseline text-xs text-accent-roots/70 hover:text-accent-roots transition-colors font-serif italic cursor-help"
                 title={ref.text}
               >
                 {ref.book} {ref.chapter}:{ref.verse}
-                <span className="inline-block max-w-0 group-hover:max-w-xs overflow-hidden transition-all duration-300 align-middle">
-                  <span className="pl-1 text-[10px] text-muted/40 normal-case not-italic">
-                    {ref.text.slice(0, 60)}&hellip;
-                  </span>
-                </span>
               </span>
             ))}
           </div>
