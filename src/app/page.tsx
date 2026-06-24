@@ -6,6 +6,7 @@ import type { DigestEntry } from "@/lib/types";
 
 import TimelineTrack from "@/components/TimelineTrack";
 import SectionPage from "@/components/SectionPage";
+import TheOracle from "@/components/TheOracle";
 
 export default function Home() {
   const manifest = loadTimelineManifest();
@@ -31,6 +32,7 @@ export default function Home() {
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [oracleOpen, setOracleOpen] = useState(false);
 
   // Track active section via scroll proximity
   const handleScroll = useCallback(() => {
@@ -88,15 +90,39 @@ export default function Home() {
     return () => container.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Keyboard navigation — ArrowLeft/ArrowRight only for horizontal
-  // (vertical scroll is handled naturally by each section's scroll area)
+  // Navigate to a specific slice (used by Oracle and keyboard nav)
+  const navigateToSlice = useCallback((index: number) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    const childIndex = index + 1; // +1 skips welcome section
+    const child = container.children[childIndex] as HTMLElement | undefined;
+    if (child) {
+      container.scrollTo({ left: child.offsetLeft, behavior: "smooth" });
+    }
+  }, []);
+
+  // Keyboard navigation — ArrowLeft/ArrowRight + Cmd+K for Oracle
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const container = scrollContainerRef.current;
+
+      // Cmd+K or Ctrl+K or / to open Oracle
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setOracleOpen((prev) => !prev);
+        return;
+      }
+      if (e.key === "/" && !oracleOpen) {
+        e.preventDefault();
+        setOracleOpen(true);
+        return;
+      }
+
+      // Only handle arrow navigation when Oracle is closed
+      if (oracleOpen) return;
       if (!container) return;
 
       let targetIndex: number | null = null;
-
       if (e.key === "ArrowRight") {
         targetIndex = Math.min(activeIndex + 1, slices.length - 1);
       } else if (e.key === "ArrowLeft") {
@@ -105,17 +131,13 @@ export default function Home() {
 
       if (targetIndex !== null) {
         e.preventDefault();
-        const childIndex = targetIndex + 1; // +1 skips welcome section
-        const child = container.children[childIndex] as HTMLElement | undefined;
-        if (child) {
-          container.scrollTo({ left: child.offsetLeft, behavior: "smooth" });
-        }
+        navigateToSlice(targetIndex);
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeIndex, slices.length]);
+  }, [activeIndex, slices.length, oracleOpen, navigateToSlice]);
 
   // Derive background color from active section
   const activeSlice = slices[activeIndex];
@@ -186,8 +208,22 @@ export default function Home() {
         ))}
       </div>
 
+      {/* Search trigger — small subtle button */}
+      <button
+        onClick={() => setOracleOpen(true)}
+        className="fixed bottom-4 right-4 z-50 flex items-center gap-1.5 px-2.5 py-1.5 bg-paper/80 border border-rule/30 rounded-sm text-[10px] text-muted/40 hover:text-muted/70 hover:border-rule/60 transition-colors font-serif"
+        aria-label="Open search"
+      >
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-muted/40">
+          <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" strokeWidth="1.5" />
+          <path d="M10 10L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        Search
+        <kbd className="text-[8px] text-muted/30 border border-rule/20 px-1 rounded">⌘K</kbd>
+      </button>
+
       {/* Bottom progress bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 h-0.5 bg-rule/20">
+      <div className="fixed bottom-0 left-0 right-0 z-40 h-0.5 bg-rule/20">
         <div
           className="h-full transition-all duration-150 ease-out"
           style={{
@@ -196,6 +232,18 @@ export default function Home() {
           }}
         />
       </div>
+
+      {/* The Oracle */}
+      {oracleOpen && (
+        <TheOracle
+          entries={manifest.entries}
+          slices={slices}
+          onNavigate={(sliceIndex: number) => {
+            navigateToSlice(sliceIndex);
+          }}
+          onClose={() => setOracleOpen(false)}
+        />
+      )}
     </div>
   );
 }
