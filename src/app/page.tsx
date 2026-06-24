@@ -101,17 +101,18 @@ export default function Home() {
     }
   }, []);
 
-  // Keyboard navigation — ArrowLeft/ArrowRight + Cmd+K for Oracle
+  // Keyboard navigation — ArrowLeft/ArrowRight + Ctrl+F for Oracle
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const container = scrollContainerRef.current;
 
-      // Cmd+K or Ctrl+K or / to open Oracle
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      // Ctrl+F or Cmd+F to open search (standard find shortcut)
+      if ((e.metaKey || e.ctrlKey) && e.key === "f") {
         e.preventDefault();
-        setOracleOpen((prev) => !prev);
+        setOracleOpen(true);
         return;
       }
+      // / key also opens search (vim-style)
       if (e.key === "/" && !oracleOpen) {
         e.preventDefault();
         setOracleOpen(true);
@@ -186,7 +187,7 @@ export default function Home() {
             {/* Navigation hint */}
             <div className="flex flex-col items-center gap-3 animate-pulse-slow">
               <span className="text-[9px] tracking-[0.2em] uppercase text-muted/30 font-serif">
-                Use arrow keys &middot; trackpad &middot; or timeline above
+                Arrow keys &middot; trackpad &middot; timeline &middot; <span className="text-accent-gold/40">Ctrl+F search</span>
               </span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-muted/30 rotate-90">
                 <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -208,18 +209,20 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Search trigger — small subtle button */}
+      {/* Search trigger — prominent pill always visible */}
       <button
         onClick={() => setOracleOpen(true)}
-        className="fixed bottom-4 right-4 z-50 flex items-center gap-1.5 px-2.5 py-1.5 bg-paper/80 border border-rule/30 rounded-sm text-[10px] text-muted/40 hover:text-muted/70 hover:border-rule/60 transition-colors font-serif"
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-5 py-2.5 bg-paper/95 border border-rule/40 rounded-full shadow-lg hover:shadow-xl text-muted/60 hover:text-ink hover:border-accent-gold/50 transition-all duration-200 font-serif backdrop-blur-sm group cursor-pointer"
         aria-label="Open search"
       >
-        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-muted/40">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-muted/40 group-hover:text-accent-gold transition-colors shrink-0">
           <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" strokeWidth="1.5" />
           <path d="M10 10L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
-        Search
-        <kbd className="text-[8px] text-muted/30 border border-rule/20 px-1 rounded">⌘K</kbd>
+        <span className="text-sm tracking-wide">Search articles &amp; scriptures</span>
+        <span className="flex items-center gap-1 ml-2 text-[10px] text-muted/30 border border-rule/20 rounded px-1.5 py-0.5 font-mono">
+          <kbd className="text-muted/40">⌘</kbd><kbd className="text-muted/40">F</kbd>
+        </span>
       </button>
 
       {/* Bottom progress bar */}

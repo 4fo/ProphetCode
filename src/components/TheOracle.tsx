@@ -288,6 +288,10 @@ export default function TheOracle({ entries, slices, onNavigate, onClose }: TheO
               <span>↑↓ Navigate</span>
               <span>↵ Open</span>
               <span>Esc Close</span>
+              <span className="text-muted/20">·</span>
+              <span>
+                <kbd className="text-muted/30 font-mono">⌘F</kbd> open
+              </span>
             </div>
           </div>
         )}
