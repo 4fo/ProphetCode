@@ -161,7 +161,7 @@ body {
 
 /* ─── Snap Scrolling ─── */
 .snap-x {
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
 }
 
 .snap-y {
@@ -170,10 +170,6 @@ body {
 
 .snap-start {
   scroll-snap-align: start;
-}
-
-.snap-mandatory {
-  scroll-snap-stop: always;
 }
 
 /* Prevent scroll chaining */

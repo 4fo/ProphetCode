@@ -7,6 +7,17 @@ import type { DigestEntry } from "@/lib/types";
 import TimelineTrack from "@/components/TimelineTrack";
 import SectionPage from "@/components/SectionPage";
 
+function scrollToSection(
+  container: HTMLDivElement | null,
+  sections: (HTMLDivElement | null)[],
+  index: number
+) {
+  if (!container) return;
+  const section = sections[index];
+  if (!section) return;
+  container.scrollTo({ left: section.offsetLeft, behavior: "smooth" });
+}
+
 export default function Home() {
   const manifest = loadTimelineManifest();
   const slices = getOrderedTimeSlices(manifest);
@@ -32,7 +43,7 @@ export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Track active section via IntersectionObserver
+  // Track active section via scroll proximity
   const handleScroll = useCallback(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
@@ -40,10 +51,8 @@ export default function Home() {
     const scrollLeft = container.scrollLeft;
     const totalWidth = container.scrollWidth - container.clientWidth;
 
-    // Calculate overall progress
     setScrollProgress(totalWidth > 0 ? scrollLeft / totalWidth : 0);
 
-    // Determine active section by proximity to center of each section
     let closestIndex = 0;
     let closestDistance = Infinity;
 
@@ -70,32 +79,55 @@ export default function Home() {
     if (!container) return;
 
     container.addEventListener("scroll", handleScroll, { passive: true });
-    // Initial calculation
     handleScroll();
 
     return () => container.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Keyboard navigation
+  // Map mouse wheel (vertical) to horizontal scroll
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const onWheel = (e: WheelEvent) => {
+      // Only intercept vertical wheel scrolls (ignore trackpad horizontal)
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+
+      // Don't intercept at boundaries
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const atStart = container.scrollLeft <= 0 && e.deltaY < 0;
+      const atEnd = container.scrollLeft >= maxScroll - 1 && e.deltaY > 0;
+      if (atStart || atEnd) return;
+
+      // Map vertical wheel to horizontal scroll with multiplier for responsiveness
+      e.preventDefault();
+      const multiplier = window.innerWidth < 2000 ? 2 : 1.5;
+      container.scrollBy({ left: e.deltaY * multiplier, behavior: "auto" });
+    };
+
+    container.addEventListener("wheel", onWheel, { passive: false });
+    return () => container.removeEventListener("wheel", onWheel);
+  }, []);
+
+  // Keyboard navigation — multiple ways to move forward/backward
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      const container = scrollContainerRef.current;
-      if (!container) return;
+      const forward =
+        e.key === "ArrowRight" ||
+        e.key === "ArrowDown" ||
+        e.key === "PageDown" ||
+        e.key === " ";
+      const backward =
+        e.key === "ArrowLeft" ||
+        e.key === "ArrowUp" ||
+        e.key === "PageUp";
 
-      if (e.key === "ArrowRight") {
+      if (forward || backward) {
         e.preventDefault();
-        const nextIndex = Math.min(activeIndex + 1, slices.length - 1);
-        const section = sectionRefs.current[nextIndex];
-        if (section) {
-          container.scrollTo({ left: section.offsetLeft, behavior: "smooth" });
-        }
-      } else if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        const prevIndex = Math.max(activeIndex - 1, 0);
-        const section = sectionRefs.current[prevIndex];
-        if (section) {
-          container.scrollTo({ left: section.offsetLeft, behavior: "smooth" });
-        }
+        const next = forward
+          ? Math.min(activeIndex + 1, slices.length - 1)
+          : Math.max(activeIndex - 1, 0);
+        scrollToSection(scrollContainerRef.current, sectionRefs.current, next);
       }
     };
 
@@ -112,21 +144,21 @@ export default function Home() {
       className="h-screen overflow-hidden transition-colors duration-700"
       style={{ backgroundColor: bgColor + "08" }}
     >
-      {/* Masthead — fixed overlay at top left */}
+      {/* Masthead — fixed overlay below the timeline track */}
       <header
-        className="fixed top-4 left-4 sm:top-6 sm:left-8 z-40 pointer-events-none transition-opacity duration-500"
-        style={{ opacity: activeIndex === 0 ? 1 : 0.6 }}
+        className="fixed top-16 left-4 sm:top-[4.5rem] sm:left-8 z-[60] pointer-events-none transition-opacity duration-500"
+        style={{ opacity: activeIndex === 0 ? 1 : 0.5 }}
       >
-        <h1 className="newspaper-headline text-lg sm:text-xl text-ink leading-none">
+        <h1 className="newspaper-headline text-base sm:text-lg text-ink leading-none">
           Prophet Code
         </h1>
-        <p className="text-[9px] tracking-[0.3em] uppercase text-muted/50 font-serif mt-0.5">
+        <p className="text-[8px] tracking-[0.25em] uppercase text-muted/40 font-serif mt-0.5">
           Intelligence Digest
         </p>
       </header>
 
       {/* Publication date — fixed at top right */}
-      <time className="fixed top-4 right-4 sm:top-6 sm:right-8 z-40 text-[9px] tracking-wider text-muted/40 font-serif pointer-events-none">
+      <time className="fixed top-4 right-4 sm:top-6 sm:right-8 z-[60] text-[9px] tracking-wider text-muted/40 font-serif pointer-events-none">
         {new Date().toLocaleDateString("en-US", {
           month: "short",
           day: "numeric",
@@ -146,7 +178,7 @@ export default function Home() {
       {/* Horizontal Scroll Container */}
       <div
         ref={scrollContainerRef}
-className="flex overflow-x-auto snap-x snap-mandatory h-screen timeline-scrollbar hide-scrollbar"
+className="flex overflow-x-auto snap-x h-screen timeline-scrollbar"
         style={{
           scrollBehavior: "smooth",
           overscrollBehaviorX: "contain",
