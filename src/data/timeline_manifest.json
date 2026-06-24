@@ -191,6 +191,237 @@
       "metadata": {}
     },
     {
+      "id": "roots-exile-prophets",
+      "title": "The Prophetic Voice in Exile: Jeremiah, Ezekiel, and Daniel",
+      "content": "The Babylonian exile was the crucible that forged the prophetic identity of Israel. Three major prophets ministered during this period — Jeremiah in Jerusalem before and during the fall, Ezekiel among the captives by the river Chebar, and Daniel in the courts of Babylon. Together, their writings form the backbone of biblical eschatology.\n\n**Jeremiah:** The weeping prophet who foretold the 70-year captivity and the promise of a new covenant written on hearts (Jeremiah 31:31-34). His prophecy of the 'righteous Branch' from David's line points directly to the Messiah.\n\n**Ezekiel:** The visionary prophet who saw the glory of God depart from the Temple — and its future return. His vision of the valley of dry bones (Ezekiel 37) is the most vivid prophecy of Israel's national resurrection.\n\n**Daniel:** The statesman-prophet who received the timeline of the 70 weeks (Daniel 9), the sequence of four world empires (Daniel 2, 7), and the prophecy of the 'Ancient of Days' (Daniel 7) — all of which form the chronological skeleton of end-time prophecy.",
+      "contentType": "Root",
+      "timeSliceId": "roots-exile-restoration",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Jeremiah",
+          "chapter": 31,
+          "verse": 31,
+          "text": "Behold, the days come, saith the LORD, that I will make a new covenant with the house of Israel, and with the house of Judah:",
+          "sourcePath": "Jeremiah 31"
+        },
+        {
+          "book": "Daniel",
+          "chapter": 9,
+          "verse": 2,
+          "text": "In the first year of his reign I Daniel understood by books the number of the years, whereof the word of the LORD came to Jeremiah the prophet, that he would accomplish seventy years in the desolations of Jerusalem.",
+          "sourcePath": "Daniel 9"
+        },
+        {
+          "book": "Ezekiel",
+          "chapter": 37,
+          "verse": 11,
+          "text": "Then he said unto me, Son of man, these bones are the whole house of Israel: behold, they say, Our bones are dried, and our hope is lost: we are cut off for our parts.",
+          "sourcePath": "Ezekiel 37"
+        }
+      ],
+      "tags": ["exile", "jeremiah", "ezekiel", "daniel", "babylon", "restoration"],
+      "metadata": {}
+    },
+    {
+      "id": "roots-return-zerubbabel",
+      "title": "The Return: Zerubbabel, Ezra, and the Rebuilding of Jerusalem",
+      "content": "The decree of Cyrus the Great in 538 BC marked the beginning of the fulfillment of Jeremiah's 70-year prophecy. Three waves of Jewish exiles returned to Jerusalem under Zerubbabel, Ezra, and Nehemiah to rebuild the Temple, the Law, and the walls.\n\n**The Prophetic Significance:**\nThe rebuilding of the Temple and Jerusalem was not merely historical — it was a direct fulfillment of prophecy and a precursor to the coming of the Messiah. The 70 weeks of Daniel begin with 'the decree to restore and rebuild Jerusalem' (Daniel 9:25), a decree issued by Artaxerxes to Nehemiah.\n\n**Key Figures:**\n- **Zerubbabel:** The governor who laid the foundation of the Second Temple amid opposition\n- **Joshua the High Priest:** The priest who stood with Zerubbabel — the two olive trees of Zechariah's vision\n- **Ezra:** The scribe who restored the Law to a people who had forgotten it\n- **Nehemiah:** The cupbearer who rebuilt the walls of Jerusalem in 52 days\n- **Haggai & Zechariah:** The prophets who encouraged the people to finish the Temple",
+      "contentType": "Root",
+      "timeSliceId": "roots-exile-restoration",
+      "verticalPos": 1,
+      "references": [
+        {
+          "book": "Ezra",
+          "chapter": 1,
+          "verse": 1,
+          "text": "Now in the first year of Cyrus king of Persia, that the word of the LORD by the mouth of Jeremiah might be fulfilled, the LORD stirred up the spirit of Cyrus king of Persia, that he made a proclamation throughout all his kingdom, and put it also in writing, saying,",
+          "sourcePath": "Ezra 1"
+        },
+        {
+          "book": "Daniel",
+          "chapter": 9,
+          "verse": 25,
+          "text": "Know therefore and understand, that from the going forth of the commandment to restore and to build Jerusalem unto the Messiah the Prince shall be seven weeks, and threescore and two weeks: the street shall be built again, and the wall, even in troublous times.",
+          "sourcePath": "Daniel 9"
+        },
+        {
+          "book": "Zechariah",
+          "chapter": 4,
+          "verse": 6,
+          "text": "Then he answered and spake unto me, saying, This is the word of the LORD unto Zerubbabel, saying, Not by might, nor by power, but by my spirit, saith the LORD of hosts.",
+          "sourcePath": "Zechariah 4"
+        }
+      ],
+      "tags": ["return", "zerubbabel", "ezra", "nehemiah", "second-temple", "restoration"],
+      "metadata": {}
+    },
+    {
+      "id": "roots-intertestamental",
+      "title": "The 400 Silent Years: Between Malachi and Matthew",
+      "content": "The period between the Old and New Testaments — roughly 400 years — is often called the 'Silent Years' because no prophetic voice spoke. But God was far from silent. The stage was being set for the most dramatic intervention in human history: the incarnation of Christ.\n\n**Political Developments:**\n- Alexander the Great conquered the known world, spreading Greek language and culture (the Hellenization that made the Gospel accessible across borders)\n- The translation of the Hebrew Scriptures into Greek (the Septuagint) made prophecy available to the Gentile world\n- The Maccabean revolt preserved Jewish identity against Antiochus Epiphanes — a foreshadowing of the Antichrist\n- Rome rose to power, creating the Pax Romana — the roads and peace that would allow the Gospel to spread rapidly\n\n**Religious Developments:**\n- The rise of the Pharisees, Sadducees, and Essenes\n- The synagogue system became the center of Jewish worship\n- Messianic expectation was at an all-time high — the scepter had departed from Judah (Genesis 49:10)\n- The prophecy of Daniel's 70 weeks was being counted",
+      "contentType": "Root",
+      "timeSliceId": "roots-intertestamental",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Daniel",
+          "chapter": 8,
+          "verse": 9,
+          "text": "And out of one of them came forth a little horn, which waxed exceeding great, toward the south, and toward the east, and toward the pleasant land.",
+          "sourcePath": "Daniel 8"
+        },
+        {
+          "book": "1 Maccabees",
+          "chapter": 1,
+          "verse": 54,
+          "text": "Now the fifteenth day of the month Casleu, in the hundred forty and fifth year, they set up the abomination of desolation upon the altar, and builded idol altars throughout the cities of Juda on every side.",
+          "sourcePath": "1 Maccabees (Apocrypha)"
+        },
+        {
+          "book": "Genesis",
+          "chapter": 49,
+          "verse": 10,
+          "text": "The sceptre shall not depart from Judah, nor a lawgiver from between his feet, until Shiloh come; and unto him shall the gathering of the people be.",
+          "sourcePath": "Genesis 49"
+        }
+      ],
+      "tags": ["intertestamental", "silent-years", "alexander", "maccabees", "septuagint", "preparation"],
+      "metadata": {}
+    },
+    {
+      "id": "roots-christ-birth",
+      "title": "The Birth of the King: Prophecy Fulfilled in Bethlehem",
+      "content": "The birth of Jesus Christ is the single greatest convergence of prophecy in human history. The prophets had spoken with precision: He would be born of a virgin (Isaiah 7:14), in Bethlehem (Micah 5:2), from the line of David (Jeremiah 23:5), at a specific time in Daniel's prophetic calendar (Daniel 9:25).\n\n**Key Prophecies Fulfilled:**\n- **The Virgin Birth:** 'Behold, a virgin shall conceive, and bear a son, and shall call his name Immanuel' (Isaiah 7:14)\n- **The Place:** 'But thou, Bethlehem Ephratah, though thou be little among the thousands of Judah, yet out of thee shall he come forth unto me that is to be ruler in Israel' (Micah 5:2)\n- **The Lineage:** 'The days come, saith the LORD, that I will raise unto David a righteous Branch, and a King shall reign and prosper' (Jeremiah 23:5)\n- **The Massacre of Infants:** 'In Ramah was there a voice heard, lamentation, and weeping, and great mourning, Rachel weeping for her children' (Jeremiah 31:15, fulfilled in Matthew 2:16-18)\n- **The Flight to Egypt:** 'Out of Egypt have I called my son' (Hosea 11:1, fulfilled in Matthew 2:15)\n\nThe incarnation was not God's Plan B — it was the fulfillment of the protoevangelion given in Eden, the covenant with Abraham, and the promise to David.",
+      "contentType": "Root",
+      "timeSliceId": "roots-christ",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Isaiah",
+          "chapter": 7,
+          "verse": 14,
+          "text": "Therefore the Lord himself shall give you a sign; Behold, a virgin shall conceive, and bear a son, and shall call his name Immanuel.",
+          "sourcePath": "Isaiah 7"
+        },
+        {
+          "book": "Micah",
+          "chapter": 5,
+          "verse": 2,
+          "text": "But thou, Bethlehem Ephratah, though thou be little among the thousands of Judah, yet out of thee shall he come forth unto me that is to be ruler in Israel; whose goings forth have been from of old, from everlasting.",
+          "sourcePath": "Micah 5"
+        },
+        {
+          "book": "Matthew",
+          "chapter": 2,
+          "verse": 1,
+          "text": "Now when Jesus was born in Bethlehem of Judaea in the days of Herod the king, behold, there came wise men from the east to Jerusalem,",
+          "sourcePath": "Matthew 2"
+        }
+      ],
+      "tags": ["christ", "birth", "virgin-birth", "bethlehem", "incarnation", "fulfillment"],
+      "metadata": {}
+    },
+    {
+      "id": "roots-christ-ministry",
+      "title": "The Ministry of Jesus: The Kingdom Proclaimed",
+      "content": "Jesus' public ministry — spanning approximately three and a half years — was the fulfillment of Isaiah's prophecy: 'The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek' (Isaiah 61:1).\n\n**The Message:** 'Repent, for the kingdom of heaven is at hand.' Jesus preached the arrival of the Kingdom, demonstrated its power through miracles, and taught its principles through parables. His ministry was the invasion of heaven into earth — the defeat of darkness, disease, and demonic power.\n\n**Prophetic Dimensions:**\n- He healed the sick — fulfilling 'Himself took our infirmities, and bare our sicknesses' (Isaiah 53:4)\n- He taught in parables — fulfilling 'I will open my mouth in parables; I will utter things which have been kept secret from the foundation of the world' (Psalm 78:2)\n- He rode into Jerusalem on a donkey — fulfilling 'Rejoice greatly, O daughter of Zion... thy King cometh unto thee... lowly, and riding upon an ass' (Zechariah 9:9)\n- He cleansed the Temple — fulfilling 'My house shall be called a house of prayer for all people' (Isaiah 56:7)\n\nThe miracles of Christ were not merely displays of power — they were signs that the promised Kingdom had arrived.",
+      "contentType": "Root",
+      "timeSliceId": "roots-christ",
+      "verticalPos": 1,
+      "references": [
+        {
+          "book": "Isaiah",
+          "chapter": 61,
+          "verse": 1,
+          "text": "The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;",
+          "sourcePath": "Isaiah 61"
+        },
+        {
+          "book": "Zechariah",
+          "chapter": 9,
+          "verse": 9,
+          "text": "Rejoice greatly, O daughter of Zion; shout, O daughter of Jerusalem: behold, thy King cometh unto thee: he is just, and having salvation; lowly, and riding upon an ass, and upon a colt the foal of an ass.",
+          "sourcePath": "Zechariah 9"
+        },
+        {
+          "book": "Matthew",
+          "chapter": 4,
+          "verse": 17,
+          "text": "From that time Jesus began to preach, and to say, Repent: for the kingdom of heaven is at hand.",
+          "sourcePath": "Matthew 4"
+        }
+      ],
+      "tags": ["christ", "ministry", "kingdom", "miracles", "parables", "fulfillment"],
+      "metadata": {}
+    },
+    {
+      "id": "roots-church-birth",
+      "title": "The Birth of the Church: Pentecost and the Age of the Spirit",
+      "content": "Fifty days after the resurrection, the promised Holy Spirit descended upon the apostles in Jerusalem — the birthday of the Church. Pentecost was the fulfillment of Joel's prophecy: 'I will pour out my Spirit upon all flesh' (Joel 2:28).\n\n**The Birth of the Church:**\n- 120 believers in the upper room became 3,000 converts in a single day\n- The apostles, once fearful and hiding, became bold proclaimers of the resurrection\n- Languages were supernaturally transcended — the reversal of Babel\n- The Church was not a building or an institution — it was a living body of believers\n\n**The Apostolic Age:**\nThe book of Acts records the spread of the Gospel from Jerusalem to Rome — the hub of the known world. Key figures include:\n- **Peter:** The apostle to the Jews who opened the door to the Gentiles at Cornelius's house\n- **Paul:** The apostle to the Gentiles who took the Gospel across Asia Minor and Greece\n- **James:** The brother of Jesus who led the Jerusalem church\n- **John:** The beloved disciple who wrote the final book of the Bible\n\nThe early church faced persecution from both Jewish authorities and the Roman Empire — yet the blood of the martyrs became the seed of the church.",
+      "contentType": "Root",
+      "timeSliceId": "roots-early-church",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Acts",
+          "chapter": 2,
+          "verse": 1,
+          "text": "And when the day of Pentecost was fully come, they were all with one accord in one place.",
+          "sourcePath": "Acts 2"
+        },
+        {
+          "book": "Joel",
+          "chapter": 2,
+          "verse": 28,
+          "text": "And it shall come to pass afterward, that I will pour out my spirit upon all flesh; and your sons and your daughters shall prophesy, your old men shall dream dreams, your young men shall see visions:",
+          "sourcePath": "Joel 2"
+        },
+        {
+          "book": "Acts",
+          "chapter": 1,
+          "verse": 8,
+          "text": "But ye shall receive power, after that the Holy Ghost is come upon you: and ye shall be witnesses unto me both in Jerusalem, and in all Judaea, and in Samaria, and unto the uttermost part of the earth.",
+          "sourcePath": "Acts 1"
+        }
+      ],
+      "tags": ["church", "pentecost", "apostles", "holy-spirit", "acts", "paul"],
+      "metadata": {}
+    },
+    {
+      "id": "roots-church-persecution",
+      "title": "The Persecuted Church: From Nero to Constantine",
+      "content": "Jesus warned His followers: 'In the world ye shall have tribulation' (John 16:33). The early church experienced this tribulation in waves of persecution that intensified over three centuries. The blood of martyrs — Stephen, James, Peter, Paul, Polycarp, and countless others — became the seed of the church.\n\n**Major Persecutions:**\n- **Nero (64-68 AD):** After the Great Fire of Rome, Nero blamed Christians and subjected them to horrific executions — being burned as torches, fed to lions, and crucified\n- **Domitian (81-96 AD):** Exiled John to Patmos, where he received the Revelation\n- **Trajan (98-117 AD):** Made Christianity illegal — Christians were hunted and executed\n- **Decius (249-251 AD):** Required all citizens to sacrifice to the Roman gods — those who refused were killed\n- **Diocletian (303-311 AD):** The Great Persecution — the most severe, aimed at destroying every copy of Scripture and every church building\n\n**The Price of the Canon:**\nThe New Testament writings were circulated among churches, collected, and eventually recognized as Scripture. The canon was forged in the fires of persecution — believers died for these words because they believed them to be the very words of God.",
+      "contentType": "Root",
+      "timeSliceId": "roots-early-church",
+      "verticalPos": 1,
+      "references": [
+        {
+          "book": "John",
+          "chapter": 16,
+          "verse": 33,
+          "text": "These things I have spoken unto you, that in me ye might have peace. In the world ye shall have tribulation: but be of good cheer; I have overcome the world.",
+          "sourcePath": "John 16"
+        },
+        {
+          "book": "Revelation",
+          "chapter": 1,
+          "verse": 9,
+          "text": "I John, who also am your brother, and companion in tribulation, and in the kingdom and patience of Jesus Christ, was in the isle that is called Patmos, for the word of God, and for the testimony of Jesus Christ.",
+          "sourcePath": "Revelation 1"
+        },
+        {
+          "book": "Hebrews",
+          "chapter": 11,
+          "verse": 36,
+          "text": "And others had trial of cruel mockings and scourgings, yea, moreover of bonds and imprisonment:",
+          "sourcePath": "Hebrews 11"
+        }
+      ],
+      "tags": ["persecution", "martyrs", "nero", "rome", "canon", "early-church"],
+      "metadata": {}
+    },
+    {
       "id": "echoes-1948",
       "title": "The Fig Tree Generation: The Rebirth of Israel (1948)",
       "content": "On May 14, 1948, the state of Israel was declared independent for the first time in nearly 1,900 years. This single event is widely regarded by prophetic scholars as the most significant prophetic sign since the ascension of Christ.\n\nJesus' parable of the fig tree in Matthew 24:32-34 directly ties the rebirth of Israel to the proximity of His return: 'When his branch is yet tender, and putteth forth leaves, ye know that summer is nigh.' For generations, commentators saw this as a distant metaphor. In 1948, it became living prophecy.\n\n**The Six-Day War (1967):** The recapture of Jerusalem — the first time the city was under Jewish sovereignty since 70 AD — fulfilled Jesus' words about Jerusalem being 'trodden down of the Gentiles, until the times of the Gentiles be fulfilled' (Luke 21:24).",

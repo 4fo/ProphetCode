@@ -218,18 +218,18 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Search trigger — prominent pill always visible */}
+      {/* Search trigger — discrete pill, compact on mobile */}
       <button
         onClick={() => setOracleOpen(true)}
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-5 py-2.5 bg-paper/95 border border-rule/40 rounded-full shadow-lg hover:shadow-xl text-muted/60 hover:text-ink hover:border-accent-gold/50 transition-all duration-200 font-serif backdrop-blur-sm group cursor-pointer"
+        className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-1.5 sm:py-2.5 bg-paper/95 border border-rule/40 rounded-full shadow-lg hover:shadow-xl text-muted/60 hover:text-ink hover:border-accent-gold/50 transition-all duration-200 font-serif backdrop-blur-sm group cursor-pointer"
         aria-label="Open search"
       >
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-muted/40 group-hover:text-accent-gold transition-colors shrink-0">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-muted/40 group-hover:text-accent-gold transition-colors shrink-0 sm:w-[14px] sm:h-[14px]">
           <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" strokeWidth="1.5" />
           <path d="M10 10L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
-        <span className="text-sm tracking-wide">Search articles &amp; scriptures</span>
-        <span className="flex items-center gap-1 ml-2 text-[10px] text-muted/30 border border-rule/20 rounded px-1.5 py-0.5 font-mono">
+        <span className="text-xs sm:text-sm tracking-wide hidden sm:inline">Search articles &amp; scriptures</span>
+        <span className="flex items-center gap-1 text-[9px] sm:text-[10px] text-muted/30 border border-rule/20 rounded px-1 sm:px-1.5 py-0.5 font-mono">
           <kbd className="text-muted/40">⌘</kbd><kbd className="text-muted/40">F</kbd>
         </span>
       </button>

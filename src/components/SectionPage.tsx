@@ -63,7 +63,7 @@ const SectionPage = forwardRef<HTMLDivElement, SectionPageProps>(
         ref={ref}
         id={`slice-${slice.id}`}
         data-slice-id={slice.id}
-        className="relative w-screen h-screen flex-shrink-0 overflow-y-auto snap-y overflow-x-hidden"
+        className="relative w-screen h-screen flex-shrink-0 snap-start overflow-y-auto snap-y overflow-x-hidden"
         style={{
           scrollBehavior: "smooth",
           scrollPaddingTop: "160px",
