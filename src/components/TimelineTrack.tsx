@@ -49,6 +49,15 @@ export default function TimelineTrack({
     [scrollContainerRef]
   );
 
+  // Scroll to the first slice of a given era
+  const scrollToEra = useCallback(
+    (eraPrefix: string) => {
+      const idx = slices.findIndex((s) => s.id.startsWith(eraPrefix));
+      if (idx >= 0) scrollToSection(idx);
+    },
+    [slices, scrollToSection]
+  );
+
   // Keep the active dot centered in the track
   useEffect(() => {
     const track = trackRef.current;
@@ -126,13 +135,31 @@ export default function TimelineTrack({
           })}
         </div>
 
-        {/* Era legend */}
-        <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-muted/50 font-serif w-20 shrink-0 justify-end">
-          <span className="hidden sm:inline">Roots</span>
-          <span className="text-rule/40">·</span>
-          <span className="hidden sm:inline">Echoes</span>
-          <span className="text-rule/40">·</span>
-          <span className="hidden sm:inline">Horizon</span>
+        {/* Era legend — clickable */}
+        <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] font-serif w-20 shrink-0 justify-end">
+          <button
+            onClick={() => scrollToEra("roots")}
+            className="hidden sm:inline text-muted/50 hover:text-accent-roots transition-colors cursor-pointer"
+            aria-label="Navigate to Roots"
+          >
+            Roots
+          </button>
+          <span className="text-rule/40 select-none">·</span>
+          <button
+            onClick={() => scrollToEra("echoes")}
+            className="hidden sm:inline text-muted/50 hover:text-accent-echoes transition-colors cursor-pointer"
+            aria-label="Navigate to Echoes"
+          >
+            Echoes
+          </button>
+          <span className="text-rule/40 select-none">·</span>
+          <button
+            onClick={() => scrollToEra("horizon")}
+            className="hidden sm:inline text-muted/50 hover:text-accent-horizon transition-colors cursor-pointer"
+            aria-label="Navigate to Horizon"
+          >
+            Horizon
+          </button>
         </div>
       </div>
     </div>

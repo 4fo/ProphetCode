@@ -7,17 +7,6 @@ import type { DigestEntry } from "@/lib/types";
 import TimelineTrack from "@/components/TimelineTrack";
 import SectionPage from "@/components/SectionPage";
 
-function scrollToSection(
-  container: HTMLDivElement | null,
-  sections: (HTMLDivElement | null)[],
-  index: number
-) {
-  if (!container) return;
-  const section = sections[index];
-  if (!section) return;
-  container.scrollTo({ left: section.offsetLeft, behavior: "smooth" });
-}
-
 export default function Home() {
   const manifest = loadTimelineManifest();
   const slices = getOrderedTimeSlices(manifest);
@@ -84,50 +73,28 @@ export default function Home() {
     return () => container.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Map mouse wheel (vertical) to horizontal scroll
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const onWheel = (e: WheelEvent) => {
-      // Only intercept vertical wheel scrolls (ignore trackpad horizontal)
-      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-
-      // Don't intercept at boundaries
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      const atStart = container.scrollLeft <= 0 && e.deltaY < 0;
-      const atEnd = container.scrollLeft >= maxScroll - 1 && e.deltaY > 0;
-      if (atStart || atEnd) return;
-
-      // Map vertical wheel to horizontal scroll with multiplier for responsiveness
-      e.preventDefault();
-      const multiplier = window.innerWidth < 2000 ? 2 : 1.5;
-      container.scrollBy({ left: e.deltaY * multiplier, behavior: "auto" });
-    };
-
-    container.addEventListener("wheel", onWheel, { passive: false });
-    return () => container.removeEventListener("wheel", onWheel);
-  }, []);
-
-  // Keyboard navigation — multiple ways to move forward/backward
+  // Keyboard navigation — ArrowLeft/ArrowRight only for horizontal
+  // (vertical scroll is handled naturally by each section's scroll area)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      const forward =
-        e.key === "ArrowRight" ||
-        e.key === "ArrowDown" ||
-        e.key === "PageDown" ||
-        e.key === " ";
-      const backward =
-        e.key === "ArrowLeft" ||
-        e.key === "ArrowUp" ||
-        e.key === "PageUp";
+      const container = scrollContainerRef.current;
+      if (!container) return;
 
-      if (forward || backward) {
+      let targetIndex: number | null = null;
+
+      if (e.key === "ArrowRight") {
+        targetIndex = Math.min(activeIndex + 1, slices.length - 1);
+      } else if (e.key === "ArrowLeft") {
+        targetIndex = Math.max(activeIndex - 1, 0);
+      }
+
+      if (targetIndex !== null) {
         e.preventDefault();
-        const next = forward
-          ? Math.min(activeIndex + 1, slices.length - 1)
-          : Math.max(activeIndex - 1, 0);
-        scrollToSection(scrollContainerRef.current, sectionRefs.current, next);
+        const childIndex = targetIndex + 1; // +1 skips welcome section
+        const child = container.children[childIndex] as HTMLElement | undefined;
+        if (child) {
+          container.scrollTo({ left: child.offsetLeft, behavior: "smooth" });
+        }
       }
     };
 
@@ -141,31 +108,9 @@ export default function Home() {
 
   return (
     <div
-      className="h-screen overflow-hidden transition-colors duration-700"
+      className="h-screen overflow-hidden"
       style={{ backgroundColor: bgColor + "08" }}
     >
-      {/* Masthead — fixed overlay below the timeline track */}
-      <header
-        className="fixed top-16 left-4 sm:top-[4.5rem] sm:left-8 z-[60] pointer-events-none transition-opacity duration-500"
-        style={{ opacity: activeIndex === 0 ? 1 : 0.5 }}
-      >
-        <h1 className="newspaper-headline text-base sm:text-lg text-ink leading-none">
-          Prophet Code
-        </h1>
-        <p className="text-[8px] tracking-[0.25em] uppercase text-muted/40 font-serif mt-0.5">
-          Intelligence Digest
-        </p>
-      </header>
-
-      {/* Publication date — fixed at top right */}
-      <time className="fixed top-4 right-4 sm:top-6 sm:right-8 z-[60] text-[9px] tracking-wider text-muted/40 font-serif pointer-events-none">
-        {new Date().toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        })}
-      </time>
-
       {/* Timeline Track */}
       <TimelineTrack
         slices={slices}
@@ -177,50 +122,37 @@ export default function Home() {
       {/* Horizontal Scroll Container */}
       <div
         ref={scrollContainerRef}
-className="flex overflow-x-auto snap-x h-screen timeline-scrollbar"
+        className="flex overflow-x-auto snap-x h-screen timeline-scrollbar"
         style={{
           scrollBehavior: "smooth",
           overscrollBehaviorX: "contain",
         }}
       >
         {/* Welcome / Intro Section */}
-        <section
-          className="relative w-screen h-screen flex-shrink-0 snap-start flex flex-col items-center justify-center px-6 sm:px-12"
-        >
+        <section className="relative w-screen h-screen flex-shrink-0 snap-start flex flex-col items-center justify-center px-6 sm:px-12">
           <div className="max-w-xl text-center">
             <p className="text-[10px] tracking-[0.35em] uppercase text-muted/50 font-serif mb-4">
               Edition I — {totalEntries} Articles
             </p>
-            <h2 className="newspaper-headline text-4xl sm:text-5xl md:text-6xl text-ink mb-6 leading-tight">
-              Tracking the Signs
-              <br />
-              <span className="italic font-normal text-muted/70">of the Times</span>
-            </h2>
+            <h1 className="newspaper-headline text-4xl sm:text-5xl md:text-6xl text-ink mb-3 leading-tight">
+              Prophet Code
+            </h1>
+            <p className="text-xs tracking-[0.3em] uppercase text-muted/50 font-serif mb-6">
+              The Bible Prophesy Dossier
+            </p>
             <p className="text-sm sm:text-base text-muted/70 font-serif italic leading-relaxed max-w-lg mx-auto mb-8">
               An intelligence digest for those monitoring the return of Christ.
               Navigate through history, observe the present, and prepare for what
               lies ahead.
             </p>
 
-            {/* Scroll hint */}
-            <div className="flex flex-col items-center gap-2 animate-pulse-slow">
+            {/* Navigation hint */}
+            <div className="flex flex-col items-center gap-3 animate-pulse-slow">
               <span className="text-[9px] tracking-[0.2em] uppercase text-muted/30 font-serif">
-                Scroll right to begin
+                Use arrow keys &middot; trackpad &middot; or timeline above
               </span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="text-muted/30"
-              >
-                <path
-                  d="M6 4L10 8L6 12"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-muted/30 rotate-90">
+                <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
           </div>
@@ -232,8 +164,9 @@ className="flex overflow-x-auto snap-x h-screen timeline-scrollbar"
             key={slice.id}
             ref={(el) => {
               sectionRefs.current[i] = el;
-            }}slice={slice}
-                entries={entriesBySlice.current[slice.id] ?? []}
+            }}
+            slice={slice}
+            entries={entriesBySlice.current[slice.id] ?? []}
           />
         ))}
       </div>
