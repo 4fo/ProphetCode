@@ -7,7 +7,6 @@ interface TimelineTrackProps {
   slices: TimeSlice[];
   activeIndex: number;
   scrollContainerRef: RefObject<HTMLDivElement | null>;
-  sectionRefs: RefObject<(HTMLDivElement | null)[]>;
   sectionColors: Record<string, string>;
 }
 
@@ -28,7 +27,6 @@ export default function TimelineTrack({
   slices,
   activeIndex,
   scrollContainerRef,
-  sectionRefs,
   sectionColors,
 }: TimelineTrackProps) {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -38,13 +36,17 @@ export default function TimelineTrack({
       const container = scrollContainerRef.current;
       if (!container) return;
 
-      const section = sectionRefs.current?.[index];
-      if (!section) return;
-
-      const scrollLeft = section.offsetLeft;
-      container.scrollTo({ left: scrollLeft, behavior: "smooth" });
+      // Use container children directly (index + 1 skips the welcome section)
+      const targetIndex = index + 1;
+      const children = container.children;
+      if (targetIndex < children.length) {
+        const section = children[targetIndex] as HTMLElement;
+        if (section) {
+          container.scrollTo({ left: section.offsetLeft, behavior: "smooth" });
+        }
+      }
     },
-    [scrollContainerRef, sectionRefs]
+    [scrollContainerRef]
   );
 
   // Keep the active dot centered in the track

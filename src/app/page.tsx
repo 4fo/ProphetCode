@@ -171,7 +171,6 @@ export default function Home() {
         slices={slices}
         activeIndex={activeIndex}
         scrollContainerRef={scrollContainerRef}
-        sectionRefs={sectionRefs}
         sectionColors={sectionColors.current}
       />
 
