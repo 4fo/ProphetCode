@@ -6,14 +6,14 @@ interface NewspaperArticleProps {
 
 export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
   return (
-    <article className="article-card snap-start min-h-0 py-3 first:pt-0 last:pb-0">
+    <article className="article-card snap-start min-h-0 py-2 first:pt-0 last:pb-0">
       {/* Title */}
-      <h3 className="newspaper-heading text-lg font-bold mb-1 leading-snug text-ink">
+      <h3 className="newspaper-heading text-lg font-bold mb-0.5 leading-snug text-ink">
         {entry.title}
       </h3>
 
       {/* Tags line */}
-      <div className="flex flex-wrap gap-1.5 mb-3">
+      <div className="flex flex-wrap gap-1 mb-1.5">
         {entry.tags.slice(0, 4).map((tag) => (
           <span
             key={tag}
@@ -51,7 +51,7 @@ export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
           // Check if this paragraph is a bullet list
           if (paragraph.trim().startsWith("- ")) {
             return (
-              <ul key={i} className="mb-3 last:mb-0 list-disc list-inside space-y-1">
+              <ul key={i} className="mb-2 last:mb-0 list-disc list-inside space-y-0.5">
                 {paragraph.split("\n").map((line, li) => {
                   const text = line.replace(/^-\s+/, "");
                   return (
@@ -65,7 +65,7 @@ export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
           }
 
           return (
-            <p key={i} className="mb-3 last:mb-0">
+            <p key={i} className="mb-2 last:mb-0">
               {rendered}
             </p>
           );
@@ -74,8 +74,8 @@ export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
 
       {/* Scripture References */}
       {entry.references.length > 0 && (
-        <div className="mt-3 pt-2 border-t border-divider">
-          <p className="text-[11px] font-serif italic text-muted/70 mb-1">
+        <div className="mt-2 pt-1.5 border-t border-divider">
+          <p className="text-[11px] font-serif italic text-muted/70 mb-0.5">
             Scripture References
           </p>
           <div className="flex flex-wrap gap-x-3 gap-y-1">
