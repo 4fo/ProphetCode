@@ -91,13 +91,23 @@ export default function Home() {
   }, [handleScroll]);
 
   // Navigate to a specific slice (used by Oracle and keyboard nav)
+  // 1. Try sectionRefs first (most reliable)
+  // 2. Fall back to container.children
+  // 3. Direct scrollLeft assignment avoids CSS smooth-scroll / snap conflicts
   const navigateToSlice = useCallback((index: number) => {
     const container = scrollContainerRef.current;
     if (!container) return;
-    const childIndex = index + 1; // +1 skips welcome section
-    const child = container.children[childIndex] as HTMLElement | undefined;
-    if (child) {
-      container.scrollTo({ left: child.offsetLeft, behavior: "smooth" });
+    
+    // Prefer sectionRefs — they're the exact elements
+    const target = sectionRefs.current[index] ?? (container.children[index + 1] as HTMLElement | undefined);
+    
+    if (target) {
+      const scrollTarget = target.offsetLeft;
+      // Assign directly instead of scrollTo({ behavior }) to avoid
+      // CSS scroll-behavior: smooth fighting with scroll-snap-type
+      container.scrollLeft = scrollTarget;
+      // Also dispatch a synthetic scroll event so handleScroll updates activeIndex
+      container.dispatchEvent(new Event("scroll"));
     }
   }, []);
 
@@ -162,7 +172,6 @@ export default function Home() {
         ref={scrollContainerRef}
         className="flex overflow-x-auto snap-x h-screen timeline-scrollbar"
         style={{
-          scrollBehavior: "smooth",
           overscrollBehaviorX: "contain",
         }}
       >
