@@ -1,8 +1,11 @@
 "use client";
 
-import { forwardRef } from "react";
+import { forwardRef, useState, useEffect, useRef } from "react";
 import type { TimeSlice, DigestEntry } from "@/lib/types";
 import NewspaperArticle from "./NewspaperArticle";
+
+/** Threshold: load content when within 3 viewport-widths of the visible area */
+const LOAD_MARGIN = "300% 0px";
 
 interface SectionPageProps {
   slice: TimeSlice;
@@ -27,6 +30,34 @@ const SectionPage = forwardRef<HTMLDivElement, SectionPageProps>(
   function SectionPage({ slice, entries }, ref) {
     const accentClass = getAccentClass(slice.id);
 
+    const sentinelRef = useRef<HTMLDivElement>(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    // Wait a tick so intersection observer can attach after mount
+    const [ready, setReady] = useState(false);
+    useEffect(() => {
+      setReady(true);
+    }, []);
+
+    // IntersectionObserver to lazy-load section content
+    useEffect(() => {
+      const el = sentinelRef.current;
+      if (!el || !ready) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsLoaded(true);
+            observer.disconnect();
+          }
+        },
+        { rootMargin: LOAD_MARGIN }
+      );
+
+      observer.observe(el);
+      return () => observer.disconnect();
+    }, [ready]);
+
     return (
       <div
         ref={ref}
@@ -38,6 +69,9 @@ const SectionPage = forwardRef<HTMLDivElement, SectionPageProps>(
           scrollPaddingTop: "160px",
         }}
       >
+        {/* Sentinel element for IntersectionObserver */}
+        <div ref={sentinelRef} className="absolute top-0 left-0 w-px h-px" aria-hidden />
+
         {/* Era banner */}
         <div className="sticky top-0 left-0 right-0 z-30 pt-14 pb-2 px-6 sm:px-12 md:px-16 lg:px-24"
           style={{
@@ -66,29 +100,44 @@ const SectionPage = forwardRef<HTMLDivElement, SectionPageProps>(
           </div>
         </div>
 
-        {/* Article count badge */}
-        <div className="flex justify-end px-6 sm:px-12 md:px-16 lg:px-24 -mt-1 mb-2">
-          <span className="text-[10px] tracking-wider text-muted/40 font-serif">
-            {entries.length} {entries.length === 1 ? "article" : "articles"}
-          </span>
-        </div>
+        {/* Content: lazy-loaded via IntersectionObserver */}
+        {isLoaded ? (
+          <>
+            {/* Article count badge */}
+            <div className="flex justify-end px-6 sm:px-12 md:px-16 lg:px-24 -mt-1 mb-2">
+              <span className="text-[10px] tracking-wider text-muted/40 font-serif">
+                {entries.length} {entries.length === 1 ? "article" : "articles"}
+              </span>
+            </div>
 
-        {/* Newspaper columns */}
-        <div className="px-6 sm:px-12 md:px-16 lg:px-24 pb-16">
-          <div className="max-w-5xl mx-auto newspaper-columns">
-            {entries.length > 0 ? (
-              entries.map((entry) => (
-                <NewspaperArticle key={entry.id} entry={entry} />
-              ))
-            ) : (
-              <div className="col-span-full text-center py-12">
-                <p className="text-sm text-muted/50 font-serif italic">
-                  No articles yet for this era.
-                </p>
+            {/* Newspaper columns */}
+            <div className="px-6 sm:px-12 md:px-16 lg:px-24 pb-16">
+              <div className="max-w-5xl mx-auto newspaper-columns">
+                {entries.length > 0 ? (
+                  entries.map((entry) => (
+                    <NewspaperArticle key={entry.id} entry={entry} />
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-12">
+                    <p className="text-sm text-muted/50 font-serif italic">
+                      No articles yet for this era.
+                    </p>
+                  </div>
+                )}
               </div>
-            )}
+            </div>
+          </>
+        ) : (
+          /* Lightweight placeholder: match height so scroll positions are reserved */
+          <div className="flex items-center justify-center h-[60vh] px-6 sm:px-12 md:px-16 lg:px-24">
+            <div className="max-w-5xl mx-auto text-center">
+              <div className="w-8 h-px bg-rule/30 mx-auto mb-4" />
+              <p className="text-[10px] tracking-[0.3em] uppercase text-muted/20 font-serif">
+                {entries.length} {entries.length === 1 ? "article" : "articles"}
+              </p>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Footer */}
         <div className="px-6 sm:px-12 md:px-16 lg:px-24 pb-8">
