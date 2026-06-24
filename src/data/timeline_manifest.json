@@ -115,7 +115,12 @@
         }
       ],
       "tags": ["creation", "fall", "protoevangelion", "covenant"],
-      "metadata": {}
+      "metadata": {},
+      "pullQuote": {
+        "afterParagraph": 0,
+        "text": "The serpent's head would be bruised by the seed of the woman — the first prophetic promise of a coming Redeemer.",
+        "attribution": "Genesis 3:15"
+      }
     },
     {
       "id": "roots-abrahamic-covenant",
@@ -167,7 +172,13 @@
         }
       ],
       "tags": ["david", "covenant", "messiah", "throne", "kingdom"],
-      "metadata": {}
+      "metadata": {},
+      "sidebar": {
+        "afterParagraph": 0,
+        "title": "The Messianic Line",
+        "accent": "roots",
+        "content": "The Davidic covenant traces the messianic lineage from David through Solomon to Joseph (Jesus' legal father). Matthew's genealogy (Matthew 1) establishes Jesus' legal right to David's throne, while Luke's genealogy (Luke 3) traces His biological lineage through Nathan, David's other son."
+      }
     },
     {
       "id": "roots-messianic-prophets",
@@ -457,7 +468,13 @@
         }
       ],
       "tags": ["israel", "1948", "fig-tree", "generation", "restoration", "jerusalem"],
-      "metadata": {}
+      "metadata": {},
+      "sidebar": {
+        "afterParagraph": 1,
+        "title": "The Generation Clock",
+        "accent": "echoes",
+        "content": "A biblical generation is often reckoned as 70-80 years (Psalm 90:10). If the 'fig tree generation' began with Israel's rebirth in 1948, then the window for the generation that 'shall not pass' spans approximately 1948-2028. The Six-Day War of 1967 provides a secondary marker — Jerusalem returned to Jewish sovereignty."
+      }
     },
     {
       "id": "echoes-european-union",
@@ -757,7 +774,12 @@
         }
       ],
       "tags": ["tribulation", "seventy-weeks", "daniel", "seals", "antichrist"],
-      "metadata": {}
+      "metadata": {},
+      "pullQuote": {
+        "afterParagraph": 0,
+        "text": "The 70th week — seven years — remains unfulfilled, suspended by the church age.",
+        "attribution": "Daniel 9:24-27"
+      }
     },
     {
       "id": "horizon-two-witnesses",

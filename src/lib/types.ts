@@ -26,6 +26,21 @@ export interface TimeSlice {
   description?: string;
 }
 
+export interface PullQuoteDef {
+  text: string;
+  attribution?: string;
+  /** After which paragraph index to insert (0 = after first paragraph) */
+  afterParagraph: number;
+}
+
+export interface SidebarDef {
+  title: string;
+  content: string;
+  accent?: "roots" | "echoes" | "horizon";
+  /** After which paragraph index to insert */
+  afterParagraph: number;
+}
+
 export interface DigestEntry {
   id: string;
   title: string;
@@ -39,6 +54,10 @@ export interface DigestEntry {
   references: ScriptureReference[];
   tags: string[];
   metadata: Record<string, string>;
+  /** An optional pull-quote to display within the article */
+  pullQuote?: PullQuoteDef;
+  /** An optional sidebar to display within the article */
+  sidebar?: SidebarDef;
 }
 
 export interface Edition {

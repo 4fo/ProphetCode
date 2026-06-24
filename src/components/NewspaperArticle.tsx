@@ -1,10 +1,22 @@
 import type { DigestEntry } from "@/lib/types";
+import PullQuote from "./PullQuote";
+import Sidebar from "./Sidebar";
 
 interface NewspaperArticleProps {
   entry: DigestEntry;
 }
 
+/** Map contentType to sidebar accent */
+function getAccentForType(contentType: string): "roots" | "echoes" | "horizon" {
+  if (contentType === "Root") return "roots";
+  if (contentType === "Echo") return "echoes";
+  return "horizon";
+}
+
 export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
+  const accent = getAccentForType(entry.contentType);
+  const contentParagraphs = entry.content.split("\n\n");
+
   return (
     <article className="article-card snap-start min-h-0 py-2 first:pt-0 last:pb-0">
       {/* Title */}
@@ -27,10 +39,12 @@ export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
         ))}
       </div>
 
-      {/* Content */}
+      {/* Content with optional PullQuote and Sidebar interspersed */}
       <div className="newspaper-body text-sm leading-relaxed text-ink/85">
-        {entry.content.split("\n\n").map((paragraph, i) => {
-          // Handle bold markdown **text**
+        {contentParagraphs.map((paragraph, i) => {
+          const elements: React.ReactNode[] = [];
+
+          // Render paragraph
           const rendered = paragraph
             .split(/(\*\*[^*]+\*\*)/g)
             .map((part, j) => {
@@ -41,17 +55,15 @@ export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
                   </strong>
                 );
               }
-              // Handle bullet list items
               if (part.startsWith("- ")) {
-                return null; // We'll handle this differently
+                return null;
               }
               return part;
             });
 
-          // Check if this paragraph is a bullet list
           if (paragraph.trim().startsWith("- ")) {
-            return (
-              <ul key={i} className="mb-2 last:mb-0 list-disc list-inside space-y-0.5">
+            elements.push(
+              <ul key={`p-${i}`} className="mb-2 last:mb-0 list-disc list-inside space-y-0.5">
                 {paragraph.split("\n").map((line, li) => {
                   const text = line.replace(/^-\s+/, "");
                   return (
@@ -62,13 +74,41 @@ export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
                 })}
               </ul>
             );
+          } else {
+            elements.push(
+              <p key={`p-${i}`} className="mb-2 last:mb-0">
+                {rendered}
+              </p>
+            );
           }
 
-          return (
-            <p key={i} className="mb-2 last:mb-0">
-              {rendered}
-            </p>
-          );
+          // Insert pull-quote after this paragraph if specified
+          if (entry.pullQuote && entry.pullQuote.afterParagraph === i) {
+            elements.push(
+              <PullQuote
+                key={`pq-${i}`}
+                text={entry.pullQuote.text}
+                attribution={entry.pullQuote.attribution}
+              />
+            );
+          }
+
+          // Insert sidebar after this paragraph if specified
+          if (entry.sidebar && entry.sidebar.afterParagraph === i) {
+            elements.push(
+              <Sidebar
+                key={`sb-${i}`}
+                title={entry.sidebar.title}
+                accent={entry.sidebar.accent ?? accent}
+              >
+                {entry.sidebar.content.split("\n\n").map((para, pi) => (
+                  <p key={pi}>{para}</p>
+                ))}
+              </Sidebar>
+            );
+          }
+
+          return elements;
         })}
       </div>
 
