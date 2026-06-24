@@ -33,7 +33,10 @@ const SectionPage = forwardRef<HTMLDivElement, SectionPageProps>(
         id={`slice-${slice.id}`}
         data-slice-id={slice.id}
         className="relative w-screen h-screen flex-shrink-0 overflow-y-auto snap-y overflow-x-hidden"
-        style={{ scrollBehavior: "smooth" }}
+        style={{
+          scrollBehavior: "smooth",
+          scrollPaddingTop: "160px",
+        }}
       >
         {/* Era banner */}
         <div className="sticky top-0 left-0 right-0 z-30 pt-14 pb-2 px-6 sm:px-12 md:px-16 lg:px-24"
