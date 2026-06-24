@@ -62,14 +62,29 @@ export default function Home() {
     setActiveIndex(closestIndex);
   }, [slices.length]);
 
+  // Scroll to latest section on mount (skip welcome screen)
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    // Wait for DOM to be ready, then jump to the last section
+    requestAnimationFrame(() => {
+      const lastChild = container.children[slices.length] as HTMLElement | undefined;
+      if (lastChild) {
+        container.scrollLeft = lastChild.offsetLeft;
+      }
+      // Trigger active index tracking after positioning
+      handleScroll();
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Attach scroll listener
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
     container.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
     return () => container.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 

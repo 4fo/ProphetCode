@@ -76,14 +76,14 @@ export default function TimelineTrack({
       }}
     >
       <div className="max-w-7xl mx-auto h-full flex items-center justify-between gap-0 min-w-max">
-        {/* Section label */}
-        <span className="text-[10px] uppercase tracking-[0.25em] text-muted/50 font-serif w-20 shrink-0">
-          {slices[activeIndex]?.id.startsWith("roots")
-            ? "Ancients"
-            : slices[activeIndex]?.id.startsWith("echoes")
-            ? "Modern"
-            : "Future"}
-        </span>
+        {/* Prophet Code — clickable: go to latest */}
+        <button
+          onClick={() => scrollToSection(slices.length - 1)}
+          className="text-[10px] uppercase tracking-[0.2em] text-ink/60 hover:text-ink transition-colors font-serif w-20 shrink-0 text-left cursor-pointer"
+          aria-label="Go to latest"
+        >
+          Prophet<br />Code
+        </button>
 
         {/* Timeline dots */}
         <div className="flex items-center gap-0 flex-1 justify-center">
