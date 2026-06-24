@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+/* ─── Tailwind v4 Theme Tokens ─── */
+@theme inline {
+  --color-ink: #1a1a1a;
+  --color-paper: #f5f0e8;
+  --color-paper-dark: #e8e0d0;
+  --color-accent-gold: #c9a84c;
+  --color-accent-gold-dark: #a88a2e;
+  --color-accent-roots: #8B7355;
+  --color-accent-echoes: #4A7B9D;
+  --color-accent-horizon: #8B3A3A;
+  --color-muted: #6b5b3d;
+  --color-divider: #d4c9b4;
+  --color-rule: #b8a88a;
+
+  --font-serif-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-serif-body: Lora, Georgia, "Times New Roman", serif;
+
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+}
+
+/* ─── Base Newspaper Styles ─── */
+body {
+  font-family: var(--font-serif-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  line-height: 1.7;
+  font-size: 1.0625rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Newspaper Typography ─── */
+.newspaper-heading {
+  font-family: var(--font-serif-heading);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.newspaper-headline {
+  font-family: var(--font-serif-heading);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.newspaper-body {
+  font-family: var(--font-serif-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ─── Multi-Column Layout ─── */
+.newspaper-columns {
+  column-count: 2;
+  column-gap: 2rem;
+  column-rule: 1px solid var(--color-rule);
+}
+
+.newspaper-columns-3 {
+  column-count: 3;
+  column-gap: 1.5rem;
+  column-rule: 1px solid var(--color-rule);
+}
+
+@media (max-width: 1024px) {
+  .newspaper-columns-3 {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .newspaper-columns {
+    column-count: 1;
+  }
+  .newspaper-columns-3 {
+    column-count: 1;
+  }
+}
+
+/* ─── Section Dividers ─── */
+.section-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-rule),
+    transparent
+  );
+  margin: 2rem 0;
+}
+
+/* ─── Pull Quotes ─── */
+.pull-quote {
+  font-family: var(--font-serif-heading);
+  font-size: 1.35rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-accent-roots);
+  border-left: 3px solid var(--color-accent-gold);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+/* ─── Sticky Headers ─── */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(
+    to bottom,
+    var(--color-paper) 60%,
+    transparent
+  );
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+/* ─── Timeline Visual Shifts ─── */
+.section-roots {
+  --section-accent: var(--color-accent-roots);
+  --section-accent-light: #b8a080;
+}
+
+.section-echoes {
+  --section-accent: var(--color-accent-echoes);
+  --section-accent-light: #7aabca;
+}
+
+.section-horizon {
+  --section-accent: var(--color-accent-horizon);
+  --section-accent-light: #b86a6a;
+}
+
+/* ─── Article Cards ─── */
+.article-card {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 2rem;
+}
+
+/* ─── Scrollbar Styling ─── */
+.timeline-scrollbar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.timeline-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-paper-dark);
+}
+
+.timeline-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-rule);
+  border-radius: 2px;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background-color: var(--color-accent-gold);
+  color: var(--color-ink);
+}
+
+/* ─── Smooth Scroll ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

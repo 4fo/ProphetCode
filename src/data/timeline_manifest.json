@@ -1,0 +1,391 @@
+{
+  "timeSlices": [
+    {
+      "id": "roots-ancient-eras",
+      "label": "The Ancient Eras",
+      "horizontalPos": 0,
+      "themeColor": "#8B7355",
+      "description": "From Creation to the Prophets — the foundational bedrock of scripture."
+    },
+    {
+      "id": "roots-exile-restoration",
+      "label": "Exile & Restoration",
+      "horizontalPos": 10,
+      "themeColor": "#6B5B3D",
+      "description": "The prophetic voices during Israel's exile and the promise of restoration."
+    },
+    {
+      "id": "roots-intertestamental",
+      "label": "The Silence & The Sects",
+      "horizontalPos": 20,
+      "themeColor": "#7B6F4E",
+      "description": "The 400-year intertestamental period — the shaping of messianic expectation."
+    },
+    {
+      "id": "roots-christ",
+      "label": "The Life of Christ",
+      "horizontalPos": 25,
+      "themeColor": "#C4A35A",
+      "description": "The fulfillment of Old Testament prophecy in the person of Jesus Christ."
+    },
+    {
+      "id": "roots-early-church",
+      "label": "The Apostolic Age",
+      "horizontalPos": 30,
+      "themeColor": "#9B8B6E",
+      "description": "The birth of the Church and the writing of the New Testament."
+    },
+    {
+      "id": "echoes-modern-israel",
+      "label": "The Restoration of Israel",
+      "horizontalPos": 45,
+      "themeColor": "#4A7B9D",
+      "description": "1948 and beyond — the fig tree generation and the return to the land."
+    },
+    {
+      "id": "echoes-geopolitics",
+      "label": "Geopolitical Signs",
+      "horizontalPos": 55,
+      "themeColor": "#5A6B8D",
+      "description": "Nations, alliances, and conflicts that echo biblical prophecy."
+    },
+    {
+      "id": "echoes-culture",
+      "label": "Cultural & Moral Shifts",
+      "horizontalPos": 65,
+      "themeColor": "#7B6B8D",
+      "description": "The moral and spiritual condition of society as described in the last days."
+    },
+    {
+      "id": "echoes-technology",
+      "label": "Technology & The Mark",
+      "horizontalPos": 70,
+      "themeColor": "#4B7B7D",
+      "description": "Biometric identification, AI, surveillance — the infrastructure of control."
+    },
+    {
+      "id": "horizon-tribulation",
+      "label": "The Tribulation",
+      "horizontalPos": 85,
+      "themeColor": "#8B3A3A",
+      "description": "The seven-year period of judgment described in Daniel and Revelation."
+    },
+    {
+      "id": "horizon-second-coming",
+      "label": "The Second Coming",
+      "horizontalPos": 95,
+      "themeColor": "#D4A017",
+      "description": "The return of Christ and the establishment of His kingdom."
+    },
+    {
+      "id": "horizon-new-creation",
+      "label": "The New Creation",
+      "horizontalPos": 100,
+      "themeColor": "#2E5E3E",
+      "description": "The new heavens and new earth — the eternal state."
+    }
+  ],
+  "entries": [
+    {
+      "id": "roots-creation-fall",
+      "title": "The Creation & The Fall: The Original Prophetic Blueprint",
+      "content": "The book of Genesis establishes the foundational narrative that all subsequent prophecy builds upon. The creation of the heavens and the earth, the fall of man, and the protoevangelion (the first gospel promise in Genesis 3:15) set the stage for the entire redemptive arc of Scripture.\n\nThe serpent's head would be bruised by the seed of the woman — the first prophetic promise of a coming Redeemer. This single verse echoes through every subsequent prophecy, from Abraham's seed to David's throne to the manger in Bethlehem.\n\n**Key Themes:**\n- The goodness of original creation\n- The fracture introduced by sin\n- The immediate promise of restoration\n- The pattern of sacrifice established",
+      "contentType": "Root",
+      "timeSliceId": "roots-ancient-eras",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Genesis",
+          "chapter": 1,
+          "verse": 1,
+          "text": "In the beginning God created the heaven and the earth.",
+          "sourcePath": "Genesis 1"
+        },
+        {
+          "book": "Genesis",
+          "chapter": 3,
+          "verse": 15,
+          "text": "And I will put enmity between thee and the woman, and between thy seed and her seed; it shall bruise thy head, and thou shalt bruise his heel.",
+          "sourcePath": "Genesis 3"
+        }
+      ],
+      "tags": ["creation", "fall", "protoevangelion", "covenant"],
+      "metadata": {}
+    },
+    {
+      "id": "roots-abrahamic-covenant",
+      "title": "The Abrahamic Covenant: A People Chosen for Purpose",
+      "content": "God's call of Abraham marks a pivotal shift in the biblical narrative. From one man, God would create a nation through whom all the families of the earth would be blessed. This covenant — unconditional, eternal, and multi-generational — forms the backbone of biblical prophecy.\n\nThe promise of land, seed, and blessing is reaffirmed to Isaac, Jacob, and David. The prophets consistently point back to this covenant as the foundation of God's faithfulness, even in the face of Israel's disobedience.\n\n**Key Elements:**\n- Land: The specific geographic territory promised\n- Seed: A nation as numerous as the stars\n- Blessing: All nations blessed through Abraham's descendants",
+      "contentType": "Root",
+      "timeSliceId": "roots-ancient-eras",
+      "verticalPos": 1,
+      "references": [
+        {
+          "book": "Genesis",
+          "chapter": 12,
+          "verse": 1,
+          "text": "Now the LORD had said unto Abram, Get thee out of thy country, and from thy kindred, and from thy father's house, unto a land that I will shew thee:",
+          "sourcePath": "Genesis 12"
+        },
+        {
+          "book": "Genesis",
+          "chapter": 15,
+          "verse": 18,
+          "text": "In the same day the LORD made a covenant with Abram, saying, Unto thy seed have I given this land, from the river of Egypt unto the great river, the river Euphrates:",
+          "sourcePath": "Genesis 15"
+        }
+      ],
+      "tags": ["abraham", "covenant", "promised-land", "seed"],
+      "metadata": {}
+    },
+    {
+      "id": "roots-davidic-throne",
+      "title": "The Davidic Covenant: The Throne Established Forever",
+      "content": "The covenant with David represents the pinnacle of Old Testament prophetic hope. God promises David that his throne will be established forever — a promise that reverberates through the Psalms and Prophets and finds its ultimate fulfillment in Jesus Christ.\n\nNathan's prophecy in 2 Samuel 7 is the seedbed for messianic expectation. The prophets Isaiah, Jeremiah, Ezekiel, and Zechariah all build upon this promise, refining and expanding the portrait of the coming King who would sit on David's throne.\n\n**Prophetic Trajectory:**\n- From David to the divided kingdom\n- The fall of the monarchy\n- The promise of a righteous Branch\n- The virgin birth of the heir",
+      "contentType": "Root",
+      "timeSliceId": "roots-ancient-eras",
+      "verticalPos": 2,
+      "references": [
+        {
+          "book": "2 Samuel",
+          "chapter": 7,
+          "verse": 12,
+          "text": "And when thy days be fulfilled, and thou shalt sleep with thy fathers, I will set up thy seed after thee, which shall proceed out of thy bowels, and I will establish his kingdom.",
+          "sourcePath": "2 Samuel 7"
+        },
+        {
+          "book": "Isaiah",
+          "chapter": 9,
+          "verse": 6,
+          "text": "For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called Wonderful, Counseller, The mighty God, The everlasting Father, The Prince of Peace.",
+          "sourcePath": "Isaiah 9"
+        }
+      ],
+      "tags": ["david", "covenant", "messiah", "throne", "kingdom"],
+      "metadata": {}
+    },
+    {
+      "id": "roots-messianic-prophets",
+      "title": "The Voice of the Prophets: Preparing the Way",
+      "content": "The major and minor prophets collectively paint a detailed portrait of the coming Messiah, the judgment of nations, and the ultimate restoration of all things. Isaiah's suffering servant, Daniel's seventy weeks, Ezekiel's valley of dry bones, and Zechariah's pierced one form a tapestry of prophetic precision.\n\n**The Prophetic Timeline:**\n- Isaiah: The suffering servant who would bear the sins of many\n- Jeremiah: The new covenant written on hearts\n- Daniel: The clock of seventy weeks revealing the Messiah's coming\n- Ezekiel: The restoration of Israel and the millennial temple\n- Hosea: The faithful husband pursuing an unfaithful bride",
+      "contentType": "Root",
+      "timeSliceId": "roots-ancient-eras",
+      "verticalPos": 3,
+      "references": [
+        {
+          "book": "Isaiah",
+          "chapter": 53,
+          "verse": 5,
+          "text": "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed.",
+          "sourcePath": "Isaiah 53"
+        },
+        {
+          "book": "Daniel",
+          "chapter": 9,
+          "verse": 24,
+          "text": "Seventy weeks are determined upon thy people and upon thy holy city, to finish the transgression, and to make an end of sins, and to make reconciliation for iniquity, and to bring in everlasting righteousness, and to seal up the vision and prophecy, and to anoint the most Holy.",
+          "sourcePath": "Daniel 9"
+        }
+      ],
+      "tags": ["prophets", "messiah", "suffering-servant", "seventy-weeks", "judgment"],
+      "metadata": {}
+    },
+    {
+      "id": "echoes-1948",
+      "title": "The Fig Tree Generation: The Rebirth of Israel (1948)",
+      "content": "On May 14, 1948, the state of Israel was declared independent for the first time in nearly 1,900 years. This single event is widely regarded by prophetic scholars as the most significant prophetic sign since the ascension of Christ.\n\nJesus' parable of the fig tree in Matthew 24:32-34 directly ties the rebirth of Israel to the proximity of His return: 'When his branch is yet tender, and putteth forth leaves, ye know that summer is nigh.' For generations, commentators saw this as a distant metaphor. In 1948, it became living prophecy.\n\n**The Six-Day War (1967):** The recapture of Jerusalem — the first time the city was under Jewish sovereignty since 70 AD — fulfilled Jesus' words about Jerusalem being 'trodden down of the Gentiles, until the times of the Gentiles be fulfilled' (Luke 21:24).",
+      "contentType": "Echo",
+      "timeSliceId": "echoes-modern-israel",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Matthew",
+          "chapter": 24,
+          "verse": 32,
+          "text": "Now learn a parable of the fig tree; When his branch is yet tender, and putteth forth leaves, ye know that summer is nigh:",
+          "sourcePath": "Matthew 24"
+        },
+        {
+          "book": "Luke",
+          "chapter": 21,
+          "verse": 24,
+          "text": "And they shall fall by the edge of the sword, and shall be led away captive into all nations: and Jerusalem shall be trodden down of the Gentiles, until the times of the Gentiles be fulfilled.",
+          "sourcePath": "Luke 21"
+        },
+        {
+          "book": "Ezekiel",
+          "chapter": 37,
+          "verse": 21,
+          "text": "And say unto them, Thus saith the Lord GOD; Behold, I will take the children of Israel from among the heathen, whither they be gone, and will gather them on every side, and bring them into their own land:",
+          "sourcePath": "Ezekiel 37"
+        }
+      ],
+      "tags": ["israel", "1948", "fig-tree", "generation", "restoration", "jerusalem"],
+      "metadata": {}
+    },
+    {
+      "id": "echoes-european-union",
+      "title": "The Revival of the Roman Empire: Europe's Super-State",
+      "content": "Daniel's vision of four beasts (Daniel 7) and the statue of Nebuchadnezzar's dream (Daniel 2) outline four successive world empires: Babylon, Medo-Persia, Greece, and Rome. The fourth empire — Rome — is depicted as having ten toes, representing a final revived form.\n\nThe European Union, with its origins in the Treaty of Rome (1957), its common currency, and its evolving political structure, has long been examined as a potential fulfillment of this revived Roman Empire. The ten original member states of certain EU configurations have been mapped to the ten toes/horns of Daniel's prophecy.\n\n**Current Watch Points:**\n- The consolidation of EU political power\n- The emergence of a dominant leader figure\n- Economic and military integration replacing national sovereignty",
+      "contentType": "Echo",
+      "timeSliceId": "echoes-geopolitics",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Daniel",
+          "chapter": 2,
+          "verse": 41,
+          "text": "And whereas thou sawest the feet and toes, part of potters' clay, and part of iron, the kingdom shall be divided; but there shall be in it of the strength of the iron, forasmuch as thou sawest the iron mixed with miry clay.",
+          "sourcePath": "Daniel 2"
+        },
+        {
+          "book": "Daniel",
+          "chapter": 7,
+          "verse": 23,
+          "text": "Thus he said, The fourth beast shall be the fourth kingdom upon earth, which shall be diverse from all kingdoms, and shall devour the whole earth, and shall tread it down, and break it in pieces.",
+          "sourcePath": "Daniel 7"
+        }
+      ],
+      "tags": ["daniel", "rome", "european-union", "fourth-beast", "ten-toes"],
+      "metadata": {}
+    },
+    {
+      "id": "echoes-moral-shifts",
+      "title": "As In The Days of Noah: The Acceleration of Moral Decline",
+      "content": "Jesus directly compared the days preceding His return to 'the days of Noah' (Matthew 24:37-39). The description in Genesis 6 — every imagination of man's heart being only evil continually, the earth filled with violence — bears striking resemblance to the accelerating moral shifts of the 21st century.\n\n**Parallels to Noah's Day:**\n- Pervasive violence and disregard for life\n- Sexual revolution and the redefinition of marriage\n- The occult and spiritual deception going mainstream\n- A globalized culture rejecting absolute truth\n\nPaul's description of the last days in 2 Timothy 3:1-5 reads like a diagnosis of modern culture: lovers of self, lovers of money, boastful, proud, disobedient to parents, ungrateful, unholy, without natural affection...",
+      "contentType": "Echo",
+      "timeSliceId": "echoes-culture",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Matthew",
+          "chapter": 24,
+          "verse": 37,
+          "text": "But as the days of Noe were, so shall also the coming of the Son of man be.",
+          "sourcePath": "Matthew 24"
+        },
+        {
+          "book": "2 Timothy",
+          "chapter": 3,
+          "verse": 1,
+          "text": "This know also, that in the last days perilous times shall come.",
+          "sourcePath": "2 Timothy 3"
+        },
+        {
+          "book": "Genesis",
+          "chapter": 6,
+          "verse": 5,
+          "text": "And GOD saw that the wickedness of man was great in the earth, and that every imagination of the thoughts of his heart was only evil continually.",
+          "sourcePath": "Genesis 6"
+        }
+      ],
+      "tags": ["days-of-noah", "moral-decline", "last-days", "culture", "paul"],
+      "metadata": {}
+    },
+    {
+      "id": "echoes-biometric-identity",
+      "title": "The Mark of the Beast: Technology and the Infrastructure of Control",
+      "content": "Revelation 13:16-17 describes a system where no one can buy or sell without receiving a mark on their right hand or forehead. For centuries, this seemed like an impossible mechanism. In the 21st century, the technological infrastructure for such a system is not only possible but increasingly implemented.\n\n**Technological Precursors:**\n- Central Bank Digital Currencies (CBDCs) replacing physical cash\n- Biometric identification systems (fingerprint, facial recognition, iris scanning)\n- Implantable microchips for medical ID and payment\n- Social credit systems scoring individual behavior\n\nWhile no one can definitively identify the 'mark,' the convergence of these technologies creates a plausible framework for the prophecy's fulfillment. The question is not whether the technology exists, but when the global coordination and acceptance will reach the critical mass described in Revelation.",
+      "contentType": "Echo",
+      "timeSliceId": "echoes-technology",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Revelation",
+          "chapter": 13,
+          "verse": 16,
+          "text": "And he causeth all, both small and great, rich and poor, free and bond, to receive a mark in their right hand, or in their foreheads:",
+          "sourcePath": "Revelation 13"
+        }
+      ],
+      "tags": ["mark-of-the-beast", "technology", "cbdc", "biometrics", "revelation"],
+      "metadata": {}
+    },
+    {
+      "id": "horizon-tribulation-overview",
+      "title": "The 70th Week: Daniel's Final Seven Years",
+      "content": "Daniel's prophecy of seventy weeks (Daniel 9:24-27) lays out a divinely decreed timeline for Israel. Sixty-nine weeks (483 years) were fulfilled from the decree to rebuild Jerusalem until the cutting off of the Messiah. The 70th week — seven years — remains unfulfilled, suspended by the church age.\n\nThis final seven-year period, commonly called the Tribulation, is the subject of the book of Revelation's most detailed prophecies. It begins with the confirmation of a covenant between the Antichrist and Israel, is marked by three series of judgments (Seals, Trumpets, Bowls), and culminates in the battle of Armageddon and the visible return of Christ.\n\n**The Three Waves of Judgment:**\n- 7 Seals: The opening of the scroll — conquest, war, famine, death, martyrdom, cosmic disturbance\n- 7 Trumpets: Ecological and celestial catastrophes\n- 7 Bowls: The final outpouring of divine wrath",
+      "contentType": "Horizon",
+      "timeSliceId": "horizon-tribulation",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Daniel",
+          "chapter": 9,
+          "verse": 27,
+          "text": "And he shall confirm the covenant with many for one week: and in the midst of the week he shall cause the sacrifice and the oblation to cease, and for the overspreading of abominations he shall make it desolate, even until the consummation, and that determined shall be poured upon the desolate.",
+          "sourcePath": "Daniel 9"
+        },
+        {
+          "book": "Revelation",
+          "chapter": 6,
+          "verse": 1,
+          "text": "And I saw when the Lamb opened one of the seals, and I heard, as it were the noise of thunder, one of the four beasts saying, Come and see.",
+          "sourcePath": "Revelation 6"
+        }
+      ],
+      "tags": ["tribulation", "seventy-weeks", "daniel", "seals", "antichrist"],
+      "metadata": {}
+    },
+    {
+      "id": "horizon-second-coming-glory",
+      "title": "Every Eye Shall See Him: The Return of the King",
+      "content": "The Second Coming of Christ is the most anticipated event in biblical prophecy. Unlike His first coming in humility — born in a manger, riding a donkey — His return is described as cosmic, triumphant, and unmistakable. Revelation 19 depicts Him riding a white horse, eyes like flames of fire, with the armies of heaven following.\n\n**Scriptural Certainties:**\n- The same Jesus who ascended will return (Acts 1:11)\n- He will return in power and great glory (Matthew 24:30)\n- Every eye shall see Him (Revelation 1:7)\n- He will stand on the Mount of Olives (Zechariah 14:4)\n- He will judge the nations and establish His kingdom (Matthew 25:31-34)\n\nThe timing, while unknown (Matthew 24:36), is bracketed by the events of the Tribulation and the generation that sees Israel restored to statehood.",
+      "contentType": "Horizon",
+      "timeSliceId": "horizon-second-coming",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Revelation",
+          "chapter": 19,
+          "verse": 11,
+          "text": "And I saw heaven opened, and behold a white horse; and he that sat upon him was called Faithful and True, and in righteousness he doth judge and make war.",
+          "sourcePath": "Revelation 19"
+        },
+        {
+          "book": "Zechariah",
+          "chapter": 14,
+          "verse": 4,
+          "text": "And his feet shall stand in that day upon the mount of Olives, which is before Jerusalem on the east, and the mount of Olives shall cleave in the midst thereof toward the east and toward the west, and there shall be a very great valley; and half of the mountain shall remove toward the north, and half of it toward the south.",
+          "sourcePath": "Zechariah 14"
+        },
+        {
+          "book": "Acts",
+          "chapter": 1,
+          "verse": 11,
+          "text": "Which also said, Ye men of Galilee, why stand ye gazing up into heaven? this same Jesus, which is taken up from you into heaven, shall so come in like manner as ye have seen him go into heaven.",
+          "sourcePath": "Acts 1"
+        }
+      ],
+      "tags": ["second-coming", "return-of-christ", "revelation", "glory", "judgment"],
+      "metadata": {}
+    },
+    {
+      "id": "horizon-millennial-kingdom",
+      "title": "The Millennial Reign: A Thousand Years of Peace",
+      "content": "Revelation 20 describes a thousand-year period during which Christ reigns on earth with His saints. This millennial kingdom fulfills the promises made to Abraham, David, and the prophets of a literal, physical kingdom on earth.\n\n**Characteristics of the Millennium:**\n- Christ reigns from Jerusalem\n- The temple is rebuilt (Ezekiel 40-48)\n- War ceases — swords beaten into plowshares\n- The earth is restored to Edenic conditions\n- Satan is bound for 1,000 years\n- The nations come to worship in Jerusalem\n\nFollowing the millennium: Satan's final rebellion, the Great White Throne judgment, and the creation of the new heavens and new earth.",
+      "contentType": "Horizon",
+      "timeSliceId": "horizon-new-creation",
+      "verticalPos": 0,
+      "references": [
+        {
+          "book": "Revelation",
+          "chapter": 20,
+          "verse": 1,
+          "text": "And I saw an angel come down from heaven, having the key of the bottomless pit and a great chain in his hand.",
+          "sourcePath": "Revelation 20"
+        },
+        {
+          "book": "Isaiah",
+          "chapter": 2,
+          "verse": 4,
+          "text": "And he shall judge among the nations, and shall rebuke many people: and they shall beat their swords into plowshares, and their spears into pruninghooks: nation shall not lift up sword against nation, neither shall they learn war any more.",
+          "sourcePath": "Isaiah 2"
+        }
+      ],
+      "tags": ["millennium", "kingdom", "peace", "reign", "new-creation"],
+      "metadata": {}
+    }
+  ],
+  "scriptureIndex": {}
+}
