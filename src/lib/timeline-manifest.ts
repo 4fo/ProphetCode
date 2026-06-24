@@ -1,4 +1,4 @@
-import type { TimelineManifest, TimeSlice, DigestEntry } from "./types";
+import type { TimelineManifest, TimeSlice, DigestEntry, Edition } from "./types";
 import rawManifest from "@/data/timeline_manifest.json";
 
 /**
@@ -16,10 +16,31 @@ export function getOrderedTimeSlices(manifest: TimelineManifest): TimeSlice[] {
 }
 
 /**
- * Get all entries for a specific time slice, ordered by vertical position.
+ * Get all editions in order.
  */
-export function getEntriesForSlice(manifest: TimelineManifest, timeSliceId: string): DigestEntry[] {
-  return manifest.entries
+export function getEditions(manifest: TimelineManifest): Edition[] {
+  return manifest.editions;
+}
+
+/**
+ * Get an edition by ID.
+ */
+export function getEditionById(manifest: TimelineManifest, id: string): Edition | undefined {
+  return manifest.editions.find((e) => e.id === id);
+}
+
+/**
+ * Get the latest (most recently added) edition.
+ */
+export function getLatestEdition(manifest: TimelineManifest): Edition {
+  return manifest.editions[manifest.editions.length - 1];
+}
+
+/**
+ * Get all entries for a specific time slice within an edition, ordered by vertical position.
+ */
+export function getEntriesForSlice(edition: Edition, timeSliceId: string): DigestEntry[] {
+  return edition.entries
     .filter((e) => e.timeSliceId === timeSliceId)
     .sort((a, b) => a.verticalPos - b.verticalPos);
 }
@@ -32,26 +53,26 @@ export function getTimeSliceById(manifest: TimelineManifest, id: string): TimeSl
 }
 
 /**
- * Get all entries of a specific content type.
+ * Get all entries of a specific content type within an edition.
  */
-export function getEntriesByType(manifest: TimelineManifest, contentType: string): DigestEntry[] {
-  return manifest.entries
+export function getEntriesByType(edition: Edition, contentType: string): DigestEntry[] {
+  return edition.entries
     .filter((e) => e.contentType === contentType)
     .sort((a, b) => a.verticalPos - b.verticalPos);
 }
 
 /**
- * Get the entry count for each content type section.
+ * Get the entry count for each content type section within an edition.
  */
-export function getSectionCounts(manifest: TimelineManifest): {
+export function getSectionCounts(edition: Edition): {
   roots: number;
   echoes: number;
   horizon: number;
 } {
   return {
-    roots: manifest.entries.filter((e) => e.contentType === "Root").length,
-    echoes: manifest.entries.filter((e) => e.contentType === "Echo").length,
-    horizon: manifest.entries.filter((e) => e.contentType === "Horizon").length,
+    roots: edition.entries.filter((e) => e.contentType === "Root").length,
+    echoes: edition.entries.filter((e) => e.contentType === "Echo").length,
+    horizon: edition.entries.filter((e) => e.contentType === "Horizon").length,
   };
 }
 

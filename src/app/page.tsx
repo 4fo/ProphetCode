@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
-import { loadTimelineManifest, getOrderedTimeSlices, getEntriesForSlice } from "@/lib/timeline-manifest";
-import type { DigestEntry } from "@/lib/types";
+import { useRef, useState, useEffect, useCallback, useMemo } from "react";
+import { loadTimelineManifest, getOrderedTimeSlices, getEntriesForSlice, getLatestEdition } from "@/lib/timeline-manifest";
+import type { DigestEntry, Edition } from "@/lib/types";
 
 import TimelineTrack from "@/components/TimelineTrack";
 import SectionPage from "@/components/SectionPage";
@@ -10,16 +10,22 @@ import TheOracle from "@/components/TheOracle";
 
 export default function Home() {
   const manifest = loadTimelineManifest();
+  const editions = manifest.editions;
   const slices = getOrderedTimeSlices(manifest);
-  const totalEntries = manifest.entries.length;
+  const latestEdition = getLatestEdition(manifest);
 
-  // Build a map of slice id → entries
-  const entriesBySlice = useRef<Record<string, DigestEntry[]>>({});
-  if (Object.keys(entriesBySlice.current).length === 0) {
+  const [activeEditionId, setActiveEditionId] = useState(latestEdition.id);
+  const activeEdition = editions.find((e) => e.id === activeEditionId) ?? latestEdition;
+  const totalEntries = activeEdition.entries.length;
+
+  // Build a map of slice id → entries for the active edition
+  const entriesBySlice = useMemo(() => {
+    const map: Record<string, DigestEntry[]> = {};
     for (const slice of slices) {
-      entriesBySlice.current[slice.id] = getEntriesForSlice(manifest, slice.id);
+      map[slice.id] = getEntriesForSlice(activeEdition, slice.id);
     }
-  }
+    return map;
+  }, [activeEdition, slices]);
 
   // Build a map of slice id → color
   const sectionColors = useRef<Record<string, string>>({});
@@ -161,6 +167,9 @@ export default function Home() {
     >
       {/* Timeline Track */}
       <TimelineTrack
+        editions={editions}
+        activeEditionId={activeEditionId}
+        onEditionChange={setActiveEditionId}
         slices={slices}
         activeIndex={activeIndex}
         scrollContainerRef={scrollContainerRef}
@@ -179,7 +188,7 @@ export default function Home() {
         <section className="relative w-screen h-screen flex-shrink-0 snap-start flex flex-col items-center justify-center px-6 sm:px-12">
           <div className="max-w-xl text-center">
             <p className="text-[10px] tracking-[0.35em] uppercase text-muted/50 font-serif mb-4">
-              Edition I — {totalEntries} Articles
+              {activeEdition.label} — {totalEntries} {totalEntries === 1 ? "Article" : "Articles"}
             </p>
             <h1 className="newspaper-headline text-4xl sm:text-5xl md:text-6xl text-ink mb-3 leading-tight">
               Prophet Code
@@ -213,7 +222,7 @@ export default function Home() {
               sectionRefs.current[i] = el;
             }}
             slice={slice}
-            entries={entriesBySlice.current[slice.id] ?? []}
+            entries={entriesBySlice[slice.id] ?? []}
           />
         ))}
       </div>
@@ -248,7 +257,7 @@ export default function Home() {
       {/* The Oracle */}
       {oracleOpen && (
         <TheOracle
-          entries={manifest.entries}
+          entries={activeEdition.entries}
           slices={slices}
           onNavigate={(sliceIndex: number) => {
             navigateToSlice(sliceIndex);

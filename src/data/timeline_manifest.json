@@ -85,7 +85,12 @@
       "description": "The new heavens and new earth — the eternal state."
     }
   ],
-  "entries": [
+  "editions": [
+    {
+      "id": "edition-i",
+      "label": "Edition I",
+      "date": "June 2026",
+      "entries": [
     {
       "id": "roots-creation-fall",
       "title": "The Creation & The Fall: The Original Prophetic Blueprint",
@@ -918,6 +923,8 @@
       ],
       "tags": ["eternal-state", "new-creation", "new-jerusalem", "revelation", "restoration", "hope"],
       "metadata": {}
+    }
+      ]
     }
   ],
   "scriptureIndex": {}

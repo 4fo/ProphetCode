@@ -41,9 +41,16 @@ export interface DigestEntry {
   metadata: Record<string, string>;
 }
 
+export interface Edition {
+  id: string;
+  label: string;
+  date: string;
+  entries: DigestEntry[];
+}
+
 export interface TimelineManifest {
   timeSlices: TimeSlice[];
-  entries: DigestEntry[];
+  editions: Edition[];
   /** Global index of the Bible books and their markdown paths */
   scriptureIndex: Record<string, string>;
 }

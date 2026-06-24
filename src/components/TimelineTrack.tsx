@@ -1,9 +1,12 @@
 "use client";
 
-import { useCallback, useRef, useEffect, type RefObject } from "react";
-import type { TimeSlice } from "@/lib/types";
+import { useCallback, useRef, useEffect, useState, type RefObject } from "react";
+import type { TimeSlice, Edition } from "@/lib/types";
 
 interface TimelineTrackProps {
+  editions: Edition[];
+  activeEditionId: string;
+  onEditionChange: (id: string) => void;
   slices: TimeSlice[];
   activeIndex: number;
   scrollContainerRef: RefObject<HTMLDivElement | null>;
@@ -24,12 +27,16 @@ function getSectionBg(id: string): string {
 }
 
 export default function TimelineTrack({
+  editions,
+  activeEditionId,
+  onEditionChange,
   slices,
   activeIndex,
   scrollContainerRef,
   sectionColors,
 }: TimelineTrackProps) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const [showEditionMenu, setShowEditionMenu] = useState(false);
 
   const scrollToSection = useCallback(
     (index: number) => {
@@ -76,14 +83,55 @@ export default function TimelineTrack({
       }}
     >
       <div className="max-w-7xl mx-auto h-full flex items-center justify-between gap-0 min-w-max">
-        {/* Prophet Code — clickable: go to latest */}
-        <button
-          onClick={() => scrollToSection(slices.length - 1)}
-          className="text-[10px] uppercase tracking-[0.2em] text-ink/60 hover:text-ink transition-colors font-serif w-20 shrink-0 text-left cursor-pointer"
-          aria-label="Go to latest"
-        >
-          Prophet<br />Code
-        </button>
+        {/* Left section: Edition selector + Prophet Code */}
+        <div className="flex items-center gap-2 w-24 shrink-0">
+          {/* Edition selector */}
+          <div className="relative">
+            <button
+              onClick={() => setShowEditionMenu(!showEditionMenu)}
+              className="text-[9px] uppercase tracking-[0.15em] text-accent-gold/70 hover:text-accent-gold transition-colors font-serif cursor-pointer whitespace-nowrap"
+              aria-label="Switch edition"
+            >
+              {editions.find((e) => e.id === activeEditionId)?.label ?? "Edition I"}
+            </button>
+            {showEditionMenu && (
+              <>
+                <div
+                  className="fixed inset-0 z-40"
+                  onClick={() => setShowEditionMenu(false)}
+                />
+                <div className="absolute top-full left-0 mt-1 z-50 bg-paper border border-rule/30 rounded-sm shadow-lg min-w-[120px]">
+                  {editions.map((ed) => (
+                    <button
+                      key={ed.id}
+                      onClick={() => {
+                        onEditionChange(ed.id);
+                        setShowEditionMenu(false);
+                      }}
+                      className={`block w-full text-left px-3 py-1.5 text-[11px] font-serif transition-colors ${
+                        ed.id === activeEditionId
+                          ? "text-accent-gold bg-accent-gold/5"
+                          : "text-muted/70 hover:text-ink hover:bg-ink/5"
+                      }`}
+                    >
+                      <span className="block leading-tight">{ed.label}</span>
+                      <span className="block text-[9px] text-muted/40">{ed.date}</span>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Prophet Code — clickable: go to latest */}
+          <button
+            onClick={() => scrollToSection(slices.length - 1)}
+            className="text-[10px] uppercase tracking-[0.2em] text-ink/60 hover:text-ink transition-colors font-serif shrink-0 text-left cursor-pointer"
+            aria-label="Go to latest"
+          >
+            Prophet<br />Code
+          </button>
+        </div>
 
         {/* Timeline dots */}
         <div className="flex items-center gap-0 flex-1 justify-center">
