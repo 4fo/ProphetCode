@@ -18,7 +18,7 @@ export default function NewspaperArticle({ entry }: NewspaperArticleProps) {
   const contentParagraphs = entry.content.split("\n\n");
 
   return (
-    <article className="article-card snap-start min-h-0 py-[6px] first:pt-0 last:pb-0">
+    <article className="article-card min-h-0 py-[6px] first:pt-0 last:pb-0">
       {/* Title */}
       <h3 className="newspaper-heading text-lg font-bold mb-0.5 leading-snug text-ink">
         {entry.title}

@@ -273,6 +273,51 @@
       "metadata": {}
     },
     {
+      "id": "roots-suffering-servant",
+      "title": "The Suffering Servant: Isaiah's Portrait of the Messiah",
+      "content": "No Old Testament passage is more frequently cited in the New Testament as fulfilled in Christ than Isaiah 52:13–53:12. This stunning portrait of a suffering, atoning Messiah stands in stark contrast to the conquering king that many expected. Yet it is precisely through suffering that Isaiah's Servant accomplishes redemption.\n\n**The Servant's Identity:** The New Testament writers unanimously identify the Servant as Jesus Christ. Philip began with Isaiah 53 when evangelizing the Ethiopian eunuch (Acts 8:32-35). Jesus Himself applied the Servant's mission to His own: 'He was numbered with the transgressors' (Luke 22:37, quoting Isaiah 53:12).\n\n**Key Prophetic Details:**\n- He would be 'despised and rejected of men' (Isaiah 53:3) — fulfilled in the crucifixion\n- He would bear 'our griefs' and be 'wounded for our transgressions' (Isaiah 53:4-5) — the substitutionary atonement\n- He would be 'oppressed' yet 'opened not his mouth' (Isaiah 53:7) — His silence before His accusers\n- He would be 'cut off out of the land of the living' (Isaiah 53:8) — His death\n- He would be 'with the rich in his death' (Isaiah 53:9) — His burial in Joseph of Arimathea's tomb\n- He would 'see of the travail of his soul, and shall be satisfied' (Isaiah 53:11) — His resurrection and the salvation of many\n\nThe suffering servant is the theological key that unlocks the entire biblical narrative — the innocent dying for the guilty, the Shepherd for the sheep, the King who conquers not by the sword but by the cross.",
+      "contentType": "Root",
+      "timeSliceId": "roots-exile-restoration",
+      "verticalPos": 2,
+      "references": [
+        {
+          "book": "Isaiah",
+          "chapter": 53,
+          "verse": 3,
+          "text": "He is despised and rejected of men; a man of sorrows, and acquainted with grief: and we hid as it were our faces from him; he was despised, and we esteemed him not.",
+          "sourcePath": "Isaiah 53"
+        },
+        {
+          "book": "Isaiah",
+          "chapter": 53,
+          "verse": 5,
+          "text": "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed.",
+          "sourcePath": "Isaiah 53"
+        },
+        {
+          "book": "Isaiah",
+          "chapter": 53,
+          "verse": 7,
+          "text": "He was oppressed, and he was afflicted, yet he opened not his mouth: he is brought as a lamb to the slaughter, and as a sheep before her shearers is dumb, so he openeth not his mouth.",
+          "sourcePath": "Isaiah 53"
+        },
+        {
+          "book": "Isaiah",
+          "chapter": 53,
+          "verse": 12,
+          "text": "Therefore will I divide him a portion with the great, and he shall divide the spoil with the strong; because he hath poured out his soul unto death: and he was numbered with the transgressors; and he bare the sin of many, and made intercession for the transgressors.",
+          "sourcePath": "Isaiah 53"
+        }
+      ],
+      "tags": ["suffering-servant", "isaiah", "messiah", "atonement", "cross", "substitution"],
+      "metadata": {},
+      "pullQuote": {
+        "afterParagraph": 0,
+        "text": "He was wounded for our transgressions, he was bruised for our iniquities — the innocent dying for the guilty.",
+        "attribution": "Isaiah 53:5"
+      }
+    },
+    {
       "id": "roots-intertestamental",
       "title": "The 400 Silent Years: Between Malachi and Matthew",
       "content": "The period between the Old and New Testaments — roughly 400 years — is often called the 'Silent Years' because no prophetic voice spoke. But God was far from silent. The stage was being set for the most dramatic intervention in human history: the incarnation of Christ.\n\n**Political Developments:**\n- Alexander the Great conquered the known world, spreading Greek language and culture (the Hellenization that made the Gospel accessible across borders)\n- The translation of the Hebrew Scriptures into Greek (the Septuagint) made prophecy available to the Gentile world\n- The Maccabean revolt preserved Jewish identity against Antiochus Epiphanes — a foreshadowing of the Antichrist\n- Rome rose to power, creating the Pax Romana — the roads and peace that would allow the Gospel to spread rapidly\n\n**Religious Developments:**\n- The rise of the Pharisees, Sadducees, and Essenes\n- The synagogue system became the center of Jewish worship\n- Messianic expectation was at an all-time high — the scepter had departed from Judah (Genesis 49:10)\n- The prophecy of Daniel's 70 weeks was being counted",
@@ -304,6 +349,52 @@
       ],
       "tags": ["intertestamental", "silent-years", "alexander", "maccabees", "septuagint", "preparation"],
       "metadata": {}
+    },
+    {
+      "id": "roots-maccabees",
+      "title": "The Maccabean Revolt: Faith Against Empire",
+      "content": "In 167 BC, the Seleucid king Antiochus IV Epiphanes crossed a line that would forever shape Jewish identity and messianic expectation. He outlawed the practice of Judaism, desecrated the Temple in Jerusalem by sacrificing a pig on the altar, and erected an idol — the 'abomination of desolation' — in the holy place. His tyranny ignited a revolt that would become a defining symbol of faithful resistance.\n\n**The Rebellion:** An elderly priest named Mattathias refused to offer a pagan sacrifice, killed the king's officer, and fled to the hills with his five sons — the Maccabees ('the hammer'). What began as a guerrilla campaign became a three-year war that recaptured Jerusalem and rededicated the Temple in 164 BC — an event commemorated in Hanukkah.\n\n**Prophetic Significance:**\n- Antiochus is a direct type of the coming Antichrist — Daniel's 'little horn' (Daniel 8:9-12) who 'magnified himself even to the prince of the host'\n- The 'abomination of desolation' set up by Antiochus foreshadows the final abomination the Antichrist will commit (Daniel 9:27, Matthew 24:15)\n- The Maccabees' refusal to compromise under threat of death prefigures the faithful remnant during the tribulation\n- The rededication of the Temple points to the ultimate restoration of true worship in the millennial kingdom\n\nThe intertestamental period was not silent — it was the forge in which Jewish resistance and messianic hope were tempered to steel.",
+      "contentType": "Root",
+      "timeSliceId": "roots-intertestamental",
+      "verticalPos": 1,
+      "references": [
+        {
+          "book": "Daniel",
+          "chapter": 8,
+          "verse": 9,
+          "text": "And out of one of them came forth a little horn, which waxed exceeding great, toward the south, and toward the east, and toward the pleasant land.",
+          "sourcePath": "Daniel 8"
+        },
+        {
+          "book": "Daniel",
+          "chapter": 8,
+          "verse": 11,
+          "text": "Yea, he magnified himself even to the prince of the host, and by him the daily sacrifice was taken away, and the place of his sanctuary was cast down.",
+          "sourcePath": "Daniel 8"
+        },
+        {
+          "book": "1 Maccabees",
+          "chapter": 1,
+          "verse": 54,
+          "text": "Now the fifteenth day of the month Casleu, in the hundred forty and fifth year, they set up the abomination of desolation upon the altar, and builded idol altars throughout the cities of Juda on every side.",
+          "sourcePath": "1 Maccabees (Apocrypha)"
+        },
+        {
+          "book": "John",
+          "chapter": 10,
+          "verse": 22,
+          "text": "And it was at Jerusalem the feast of the dedication, and it was winter.",
+          "sourcePath": "John 10"
+        }
+      ],
+      "tags": ["maccabees", "hanukkah", "antiochus", "abomination", "intertestamental", "persecution", "types"],
+      "metadata": {},
+      "sidebar": {
+        "afterParagraph": 1,
+        "title": "The Abomination of Desolation",
+        "accent": "roots",
+        "content": "The 'abomination of desolation' appears in Daniel 9:27, 11:31, and 12:11. Antiochus Epiphanes fulfilled a historical type by setting up a pagan altar in the Temple. Jesus referred to a future fulfillment (Matthew 24:15) yet to come — the Antichrist will commit the ultimate abomination in the rebuilt Temple."
+      }
     },
     {
       "id": "roots-christ-birth",
@@ -945,6 +1036,234 @@
       ],
       "tags": ["eternal-state", "new-creation", "new-jerusalem", "revelation", "restoration", "hope"],
       "metadata": {}
+    },
+    {
+      "id": "roots-christ-resurrection",
+      "title": "The Resurrection: Victory Over Death",
+      "content": "The resurrection of Jesus Christ is the central claim of Christianity and the defining proof of His divine identity. The apostle Paul declared that if Christ has not been raised, faith is futile (1 Corinthians 15:17). But the resurrection is also the fulfillment of a prophetic trajectory that runs throughout the Old Testament.\n\n**Prophetic Foundations:**\n- David spoke prophetically: 'Thou wilt not leave my soul in hell; neither wilt thou suffer thine Holy One to see corruption' (Psalm 16:10) — cited by Peter at Pentecost as a prophecy of Christ's resurrection (Acts 2:25-31)\n- Isaiah foresaw that the Suffering Servant would 'see of the travail of his soul, and shall be satisfied' (Isaiah 53:11) — resurrection follows the servant's death\n- Jonah's three days in the belly of the great fish was declared by Jesus Himself to be a type of His own burial and resurrection (Matthew 12:40)\n- Hosea prophesied: 'After two days will he revive us: in the third day he will raise us up, and we shall live in his sight' (Hosea 6:2)\n\n**The Resurrection Appearances:**\n- To Mary Magdalene at the tomb (John 20:11-18)\n- To the disciples on the road to Emmaus (Luke 24:13-35)\n- To Peter (Luke 24:34, 1 Corinthians 15:5)\n- To the Twelve in the upper room (John 20:19-23)\n- To Thomas, who doubted until he saw (John 20:24-29)\n- To more than 500 brothers at once (1 Corinthians 15:6)\n- To Paul on the road to Damascus (Acts 9:1-9)\n\nThe resurrection is not merely a historical event — it is the firstfruits of the general resurrection of the dead. Because He lives, those who are in Christ will also be raised. It is the guarantee that death has been defeated and that the new creation has already begun.",
+      "contentType": "Root",
+      "timeSliceId": "roots-christ",
+      "verticalPos": 2,
+      "references": [
+        {
+          "book": "Psalm",
+          "chapter": 16,
+          "verse": 10,
+          "text": "For thou wilt not leave my soul in hell; neither wilt thou suffer thine Holy One to see corruption.",
+          "sourcePath": "Psalm 16"
+        },
+        {
+          "book": "1 Corinthians",
+          "chapter": 15,
+          "verse": 17,
+          "text": "And if Christ be not raised, your faith is vain; ye are yet in your sins.",
+          "sourcePath": "1 Corinthians 15"
+        },
+        {
+          "book": "Matthew",
+          "chapter": 12,
+          "verse": 40,
+          "text": "For as Jonas was three days and three nights in the whale's belly; so shall the Son of man be three days and three nights in the heart of the earth.",
+          "sourcePath": "Matthew 12"
+        },
+        {
+          "book": "Acts",
+          "chapter": 2,
+          "verse": 31,
+          "text": "He seeing this before spake of the resurrection of Christ, that his soul was not left in hell, neither his flesh did see corruption.",
+          "sourcePath": "Acts 2"
+        }
+      ],
+      "tags": ["resurrection", "christ", "victory", "death", "firstfruits", "fulfillment"],
+      "metadata": {},
+      "pullQuote": {
+        "afterParagraph": 0,
+        "text": "The resurrection is not merely a historical event — it is the firstfruits of the general resurrection of the dead.",
+        "attribution": "1 Corinthians 15:20"
+      }
+    },
+    {
+      "id": "roots-jerusalem-council",
+      "title": "The Jerusalem Council: Unity in the Early Church",
+      "content": "The Jerusalem Council, recorded in Acts 15, represents the first major doctrinal crisis of the early church — and the model for how the body of Christ would resolve disputes through Scripture, testimony, and the leading of the Holy Spirit. The question at stake: must Gentile believers become Jews in order to be saved?\n\n**The Controversy:** Certain men from Judea taught that unless Gentile believers were circumcised according to the law of Moses, they could not be saved. Paul and Barnabas strongly disputed this teaching, and the matter was brought before the apostles and elders in Jerusalem.\n\n**The Council's Deliberation:**\n- Peter testified of his vision and Gentile converts at Cornelius's house: 'God, which knoweth the hearts, bare them witness, giving them the Holy Ghost, even as he did unto us; and put no difference between us and them, purifying their hearts by faith' (Acts 15:8-9)\n- Paul and Barnabas reported the signs and wonders God had done among the Gentiles through their ministry\n- James, the brother of Jesus and leader of the Jerusalem church, rendered the final judgment, citing the prophet Amos: 'After this I will return, and will build again the tabernacle of David, which is fallen down' (Acts 15:16, citing Amos 9:11-12)\n\n**The Decision:** The council concluded that Gentile believers should not be burdened with the ceremonial law, but should abstain from things polluted by idols, from sexual immorality, from strangled animals, and from blood (Acts 15:20). The letter was sent to the churches with joy and relief — the Gospel was for all nations, without the requirement of becoming Jewish.\n\n**Prophetic Significance:** The inclusion of the Gentiles was not a late addition to God's plan — it was the fulfillment of the Abrahamic promise that 'in thee shall all families of the earth be blessed' (Genesis 12:3). The Jerusalem Council marks the moment the church understood that the dividing wall between Jew and Gentile had been broken down in Christ.",
+      "contentType": "Root",
+      "timeSliceId": "roots-early-church",
+      "verticalPos": 2,
+      "references": [
+        {
+          "book": "Acts",
+          "chapter": 15,
+          "verse": 8,
+          "text": "And God, which knoweth the hearts, bare them witness, giving them the Holy Ghost, even as he did unto us;",
+          "sourcePath": "Acts 15"
+        },
+        {
+          "book": "Amos",
+          "chapter": 9,
+          "verse": 11,
+          "text": "In that day will I raise up the tabernacle of David that is fallen, and close up the breaches thereof; and I will raise up his ruins, and I will build it as in the days of old:",
+          "sourcePath": "Amos 9"
+        },
+        {
+          "book": "Genesis",
+          "chapter": 12,
+          "verse": 3,
+          "text": "And I will bless them that bless thee, and curse him that curseth thee: and in thee shall all families of the earth be blessed.",
+          "sourcePath": "Genesis 12"
+        }
+      ],
+      "tags": ["jerusalem-council", "gentiles", "paul", "james", "acts", "unity", "doctrine"],
+      "metadata": {},
+      "sidebar": {
+        "afterParagraph": 1,
+        "title": "The Council's Letter",
+        "accent": "roots",
+        "content": "The letter from the Jerusalem Council (Acts 15:23-29) began: 'The apostles and elders and brethren send greeting unto the brethren which are of the Gentiles in Antioch and Syria and Cilicia.' It explicitly stated: 'It seemed good to the Holy Ghost, and to us, to lay upon you no greater burden than these necessary things.' This established the principle that the Holy Spirit guides the church corporately through Scripture and consensus."
+      }
+    },
+    {
+      "id": "echoes-aliyah",
+      "title": "The Aliyah: The Modern Return to Zion",
+      "content": "The word 'aliyah' — ascension — is the Hebrew term for Jewish immigration to the land of Israel. Since the establishment of the state in 1948, over 3.5 million Jews have returned to the land from over 100 countries. This ingathering is the most dramatic fulfillment of Ezekiel's valley of dry bones prophecy in modern history.\n\n**Waves of Return:**\n- **First Aliyah (1882-1903):** 25,000 Jews from Eastern Europe fled pogroms\n- **Second Aliyah (1904-1914):** 40,000 pioneers, many socialist idealists, who built the first kibbutzim\n- **Third Aliyah (1919-1923):** 35,000 from post-WWI Europe\n- **Operation Magic Carpet (1949-1950):** 49,000 Yemenite Jews airlifted to Israel\n- **Operation Ezra and Nehemiah (1950-1951):** 130,000 Iraqi Jews evacuated\n- **Operation Solomon (1991):** 14,000 Ethiopian Jews airlifted in 36 hours\n- **Post-Soviet Aliyah (1990s):** Over 1 million Jews from the former USSR\n\n**Prophetic Fulfillment:**\nEzekiel 37 describes the dry bones coming together — bone to bone, sinew and flesh covering them, and breath entering them. This is the national resurrection of Israel as a people and a nation. The prophet Jeremiah wrote: 'Behold, I will bring them from the north country, and gather them from the coasts of the earth' (Jeremiah 31:8). Isaiah proclaimed: 'Fear not: for I am with thee: I will bring thy seed from the east, and gather thee from the west' (Isaiah 43:5).\n\nThe Aliyah is not merely a demographic event — it is the physical fulfillment of God's covenant promise to regather His people from all nations and bring them back to the land He gave to Abraham.",
+      "contentType": "Echo",
+      "timeSliceId": "echoes-modern-israel",
+      "verticalPos": 2,
+      "references": [
+        {
+          "book": "Ezekiel",
+          "chapter": 37,
+          "verse": 7,
+          "text": "So I prophesied as I was commanded: and as I prophesied, there was a noise, and behold a shaking, and the bones came together, bone to his bone.",
+          "sourcePath": "Ezekiel 37"
+        },
+        {
+          "book": "Jeremiah",
+          "chapter": 31,
+          "verse": 8,
+          "text": "Behold, I will bring them from the north country, and gather them from the coasts of the earth, and with them the blind and the lame, the woman with child and her that travaileth with child together: a great company shall return thither.",
+          "sourcePath": "Jeremiah 31"
+        },
+        {
+          "book": "Isaiah",
+          "chapter": 43,
+          "verse": 5,
+          "text": "Fear not: for I am with thee: I will bring thy seed from the east, and gather thee from the west;",
+          "sourcePath": "Isaiah 43"
+        }
+      ],
+      "tags": ["aliyah", "israel", "return", "gathering", "ezekiel", "fulfillment"],
+      "metadata": {}
+    },
+    {
+      "id": "horizon-seals-trumpets-bowls",
+      "title": "The Seals, Trumpets, and Bowls: The Judgment of God",
+      "content": "The book of Revelation unfolds three sequential series of judgments — seven seals, seven trumpets, and seven bowls — that progressively intensify God's wrath upon a rebellious world. Together, they form the chronological spine of the tribulation period.\n\n**The Seven Seals (Revelation 6):**\n- First Seal: A white horse — the Antichrist goes forth conquering (deception)\n- Second Seal: A red horse — peace is taken from the earth (war)\n- Third Seal: A black horse — famine and economic collapse\n- Fourth Seal: A pale horse — Death and Hell follow, killing a quarter of the earth\n- Fifth Seal: The souls of the martyrs cry out for justice\n- Sixth Seal: Cosmic disturbances — earthquake, sun blackened, stars fall\n- Seventh Seal: Silence in heaven for half an hour — the introduction to the trumpets\n\n**The Seven Trumpets (Revelation 8-9):**\n- First Trumpet: Hail and fire mixed with blood — a third of the earth burned\n- Second Trumpet: A burning mountain cast into the sea — a third of the sea becomes blood\n- Third Trumpet: Wormwood falls — a third of waters become bitter\n- Fourth Trumpet: A third of the sun, moon, and stars darkened\n- Fifth Trumpet (First Woe): Locusts from the Abyss torment men for five months\n- Sixth Trumpet (Second Woe): 200 million cavalry kill a third of mankind\n- Seventh Trumpet: The kingdom of the world becomes the kingdom of Christ\n\n**The Seven Bowls (Revelation 16):**\n- First Bowl: Painful sores on those with the mark of the beast\n- Second Bowl: The sea becomes blood — every living thing dies\n- Third Bowl: Rivers and springs become blood\n- Fourth Bowl: The sun scorches men with fire\n- Fifth Bowl: Darkness covers the beast's kingdom\n- Sixth Bowl: The Euphrates dried up — the kings of the east gather\n- Seventh Bowl: The great earthquake — Babylon falls\n\nThese judgments are not random acts of wrath — they are the holy response of a righteous God to the rebellion of humanity, each wave serving as a call to repentance (Revelation 9:20-21) and a demonstration of His sovereignty over creation.",
+      "contentType": "Horizon",
+      "timeSliceId": "horizon-tribulation",
+      "verticalPos": 2,
+      "references": [
+        {
+          "book": "Revelation",
+          "chapter": 6,
+          "verse": 1,
+          "text": "And I saw when the Lamb opened one of the seals, and I heard, as it were the noise of thunder, one of the four beasts saying, Come and see.",
+          "sourcePath": "Revelation 6"
+        },
+        {
+          "book": "Revelation",
+          "chapter": 9,
+          "verse": 20,
+          "text": "And the rest of the men which were not killed by these plagues yet repented not of the works of their hands, that they should not worship devils, and idols of gold, and silver, and brass, and stone, and of wood: which neither can see, nor hear, nor walk:",
+          "sourcePath": "Revelation 9"
+        },
+        {
+          "book": "Revelation",
+          "chapter": 16,
+          "verse": 1,
+          "text": "And I heard a great voice out of the temple saying to the seven angels, Go your ways, and pour out the vials of the wrath of God upon the earth.",
+          "sourcePath": "Revelation 16"
+        }
+      ],
+      "tags": ["seals", "trumpets", "bowls", "judgment", "revelation", "tribulation"],
+      "metadata": {}
+    },
+    {
+      "id": "horizon-judgment-nations",
+      "title": "The Judgment of the Nations: Sheep and Goats",
+      "content": "Immediately following His return, Jesus Christ will judge the nations of the earth in what is commonly called the Judgement of the Nations (Matthew 25:31-46). This judgment separates humanity into two groups — the sheep on His right hand and the goats on His left — based on their treatment of 'the least of these my brethren.'\n\n**The Criteria:** The King's judgment is strikingly practical. The sheep are those who fed the hungry, gave drink to the thirsty, welcomed the stranger, clothed the naked, visited the sick, and came to those in prison. The goats are those who failed to do these things. Jesus identifies Himself with the hungry, the stranger, the sick, and the imprisoned: 'Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me.'\n\n**The Outcome:** The sheep inherit the kingdom prepared for them from the foundation of the world — eternal life. The goats go away into everlasting punishment prepared for the devil and his angels — eternal fire.\n\n**Prophetic Context:** This judgment follows the gathering of the nations at Armageddon. It is distinct from the Great White Throne Judgment (Revelation 20:11-15), which judges all the dead based on their works. The Judgment of the Nations concerns living survivors of the tribulation and determines who enters the millennial kingdom in their natural bodies.\n\nThe prophet Joel described this same event: 'I will also gather all nations, and will bring them down into the valley of Jehoshaphat, and will plead with them there for my people and for my heritage Israel' (Joel 3:2). The outcome is determined by how the nations treated Israel and the people of God during the tribulation.",
+      "contentType": "Horizon",
+      "timeSliceId": "horizon-second-coming",
+      "verticalPos": 2,
+      "references": [
+        {
+          "book": "Matthew",
+          "chapter": 25,
+          "verse": 31,
+          "text": "When the Son of man shall come in his glory, and all the holy angels with him, then shall he sit upon the throne of his glory:",
+          "sourcePath": "Matthew 25"
+        },
+        {
+          "book": "Matthew",
+          "chapter": 25,
+          "verse": 41,
+          "text": "Then shall he say also unto them on the left hand, Depart from me, ye cursed, into everlasting fire, prepared for the devil and his angels:",
+          "sourcePath": "Matthew 25"
+        },
+        {
+          "book": "Joel",
+          "chapter": 3,
+          "verse": 2,
+          "text": "I will also gather all nations, and will bring them down into the valley of Jehoshaphat, and will plead with them there for my people and for my heritage Israel, whom they have scattered among the nations, and parted my land.",
+          "sourcePath": "Joel 3"
+        }
+      ],
+      "tags": ["judgment", "nations", "sheep", "goats", "second-coming", "kingdom"],
+      "metadata": {}
+    },
+    {
+      "id": "horizon-river-life",
+      "title": "The River of Life: Healing for the Nations",
+      "content": "In the closing chapters of Revelation, John describes a river of the water of life, clear as crystal, proceeding from the throne of God and of the Lamb. It flows down the middle of the great street of the New Jerusalem, and on either side stands the tree of life — bearing twelve manner of fruits, its leaves for the healing of the nations.\n\n**The River in Scripture:**\nThe river of life is not a new image in the Bible. It first appears in the Garden of Eden (Genesis 2:10-14), where a river flowed out of Eden to water the garden. The prophet Ezekiel saw a river flowing from the Temple (Ezekiel 47:1-12), bringing life wherever it went — the Dead Sea itself was healed by its waters. The psalmist declared: 'There is a river, the streams whereof shall make glad the city of God' (Psalm 46:4).\n\n**The Healing of the Nations:**\nPerhaps the most remarkable detail is that the leaves of the tree of life are 'for the healing of the nations.' This hearkens back to the Abrahamic covenant — that in Abraham's seed all nations of the earth would be blessed. The division of Babel, the scattering at the Tower, is finally undone. Nations retain their distinct identities but live in peace under the reign of Christ.\n\n**The Throne of God and the Lamb:**\nThe river flows from the throne — a constant reminder that all life, all healing, all blessing originates in the presence of God. His servants serve Him, see His face, and bear His name on their foreheads. There is no more curse. Night is no more. The light of God's glory is all they need.\n\nThe Bible begins with a garden and a river. It ends with a city and a river — the story comes full circle, not returning to the beginning, but advancing to a glory greater than Eden could have ever imagined.",
+      "contentType": "Horizon",
+      "timeSliceId": "horizon-new-creation",
+      "verticalPos": 2,
+      "references": [
+        {
+          "book": "Revelation",
+          "chapter": 22,
+          "verse": 1,
+          "text": "And he shewed me a pure river of water of life, clear as crystal, proceeding out of the throne of God and of the Lamb.",
+          "sourcePath": "Revelation 22"
+        },
+        {
+          "book": "Ezekiel",
+          "chapter": 47,
+          "verse": 9,
+          "text": "And it shall come to pass, that every thing that liveth, which moveth, whithersoever the rivers shall come, shall live: and there shall be a very great multitude of fish, because these waters shall come thither: for they shall be healed; and every thing shall live whither the river cometh.",
+          "sourcePath": "Ezekiel 47"
+        },
+        {
+          "book": "Genesis",
+          "chapter": 2,
+          "verse": 10,
+          "text": "And a river went out of Eden to water the garden; and from thence it was parted, and became into four heads.",
+          "sourcePath": "Genesis 2"
+        },
+        {
+          "book": "Psalm",
+          "chapter": 46,
+          "verse": 4,
+          "text": "There is a river, the streams whereof shall make glad the city of God, the holy place of the tabernacles of the most High.",
+          "sourcePath": "Psalm 46"
+        }
+      ],
+      "tags": ["river-of-life", "new-jerusalem", "healing", "nations", "eternal-state", "restoration"],
+      "metadata": {},
+      "pullQuote": {
+        "afterParagraph": 0,
+        "text": "The Bible begins with a garden and a river. It ends with a city and a river — the story comes full circle, advancing to a glory greater than Eden could have ever imagined.",
+        "attribution": "Revelation 22:1-2"
+      }
     }
       ]
     }
